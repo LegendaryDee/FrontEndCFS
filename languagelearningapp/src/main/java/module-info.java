@@ -3,5 +3,9 @@ module languagelearningapp {
     requires javafx.fxml;
 
     opens languagelearningapp to javafx.fxml;
+    opens com.language to javafx.fxml;
+    opens com.languagelearningapp;
+    opens com.controllers to javafx.fxml;
+    exports com.languagelearningapp;
     exports languagelearningapp;
 }
