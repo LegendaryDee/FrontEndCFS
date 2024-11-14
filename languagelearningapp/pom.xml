@@ -83,6 +83,13 @@
             <version>2.1.0-alpha1</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.9</version> <!-- Update to the latest version if necessary -->
+        </dependency>
+
+
          <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-console-standalone -->
 		<dependency>
 		    <groupId>org.junit.platform</groupId>
