@@ -30,7 +30,7 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import library.App;
+// import library.App;
 
 public class UserHomeController implements Initializable {
     @FXML private Label lbl_title;

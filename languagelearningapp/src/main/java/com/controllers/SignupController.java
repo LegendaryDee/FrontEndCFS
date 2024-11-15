@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import library.App;
+// import library.App;
 
 public class SignupController implements Initializable {
     @FXML
@@ -62,7 +62,7 @@ public class SignupController implements Initializable {
 
         library.login(username);
         User user = library.getCurrentUser();
-        App.setRoot("user_home");
+        com.language.App.setRoot("user_home");
     }
 
     @FXML

@@ -12,8 +12,6 @@ module languagelearningapp {
     requires software.amazon.awssdk.awscore;
     requires software.amazon.eventstream;
 
-    opens com.languagelearningapp to javafx.fxml;
-    exports com.languagelearningapp;
     
     opens com.language to javafx.fxml;
     exports com.language;
