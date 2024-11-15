@@ -1,7 +1,6 @@
 module languagelearningapp {
     requires javafx.controls;
     requires javafx.fxml;
-    requires junit;
     requires json.simple;
     requires jlayer;
     requires software.amazon.awssdk.core;
@@ -13,18 +12,15 @@ module languagelearningapp {
     requires software.amazon.awssdk.awscore;
     requires software.amazon.eventstream;
 
+    opens com.languagelearningapp to javafx.fxml;
+    exports com.languagelearningapp;
+    
     opens com.language to javafx.fxml;
-<<<<<<< HEAD
-    opens com.language;
+    exports com.language;
+
     opens com.controllers to javafx.fxml;
-    exports com.language;
-=======
-    exports com.language;
+    exports com.controllers;
 
-    opens languagelearningapp to javafx.fxml;
->>>>>>> c77d676366af4f84be39815770c4a0f1164526a6
-    exports languagelearningapp;
-
-    opens com.narration to javafx.fxml;
-    exports com.narration;
+    opens com.model to javafx.fxml;
+    exports com.model;
 }
