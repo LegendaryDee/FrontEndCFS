@@ -16,9 +16,19 @@ module languagelearningapp {
     opens com.language to javafx.fxml;
     exports com.language;
 
+    opens com.narration to javafx.fxml;
+    exports com.narration;
+
     opens com.controllers to javafx.fxml;
     exports com.controllers;
 
     opens com.model to javafx.fxml;
     exports com.model;
+
+    opens com.data to javafx.fxml;
+    exports com.data;
+
+    opens com.library to javafx.fxml;
+    exports com.library;
+
 }
