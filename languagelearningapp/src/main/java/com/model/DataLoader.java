@@ -11,6 +11,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.data.DataConstants;
+
 /**
  * The DataLoader class is responsible for loading flashcard data from a JSON file.
  * It parses the JSON data and converts it into a list of Flashcard objects.

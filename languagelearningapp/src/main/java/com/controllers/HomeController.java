@@ -12,12 +12,12 @@ public class HomeController implements Initializable {
 
     @FXML
     private void onLoginClicked(ActionEvent event) throws IOException {
-        com.language.App.setRoot("login");
+        com.library.App.setRoot("login");
     }
 
     @FXML
     private void onSignupClicked(ActionEvent event) throws IOException {
-        com.language.App.setRoot("signup");
+        com.library.App.setRoot("signup");
     }
 
     @Override

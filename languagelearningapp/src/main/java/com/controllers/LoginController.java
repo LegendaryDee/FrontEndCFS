@@ -32,13 +32,17 @@ public class LoginController implements Initializable {
             lbl_error.setText("Invalid login credentials.");
             return;
         }
+        if (!library.login(password)) {
+            lbl_error.setText("Invalid login credentials.");
+            return;
+        }
 
-        com.language.App.setRoot("user_home");
+        com.library.App.setRoot("user_home");
     }
 
     @FXML
     private void back(MouseEvent event) throws IOException {
-        com.language.App.setRoot("home");
+        com.library.App.setRoot("home");
     }
 
     @Override
