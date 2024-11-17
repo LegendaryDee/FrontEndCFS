@@ -50,4 +50,15 @@ public class UserList {
         DataWriter dataWriter = new DataWriter();
         dataWriter.saveUsers(users);
     }
+
+    public void setUsers(List<User> users) {
+        if (users != null) {
+            this.users = users;
+            // Save updated user list to the data source
+            DataWriter dataWriter = new DataWriter();
+            dataWriter.saveUsers(users);
+        } else {
+            throw new IllegalArgumentException("User list cannot be null.");
+        }
+    }
 }

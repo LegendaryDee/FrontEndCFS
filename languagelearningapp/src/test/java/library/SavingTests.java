@@ -124,7 +124,7 @@ public class SavingTests {
         courseList.addCourse(testCourse2);
 
         // Save the courses to the JSON file
-        DataWriter.saveCourses(courseList.getCourses());
+        DataWriter.saveCourses(courseList.getAllCourses());
 
         // Load the saved file and verify its contents
         try {

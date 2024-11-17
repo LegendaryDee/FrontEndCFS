@@ -64,4 +64,15 @@ public void addCourse(Course course) {
         }
         return result;
     }
+
+    public void setCourses(List<Course> courses) {
+        if (courses != null) {
+            this.courses = new ArrayList<>(courses); // Create a new list to avoid external modifications
+            // Optionally, save or persist the new course list
+            DataWriter dataWriter = new DataWriter();
+            dataWriter.saveCourses(courses);
+        } else {
+            throw new IllegalArgumentException("Course list cannot be null.");
+        }
+    }
 }
