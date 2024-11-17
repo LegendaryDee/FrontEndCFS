@@ -1,9 +1,17 @@
-package test;
+package library;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import com.model.Course;
+import com.model.CourseList;
+import com.model.DataWriter;
+import com.model.LanguagePreference;
+import com.model.ProgressData;
+import com.model.User;
+import com.model.UserList;
 
 import java.io.FileReader;
 import java.util.List;
