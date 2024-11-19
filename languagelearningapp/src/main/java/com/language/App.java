@@ -19,6 +19,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         // Correct path for loading FXML file
         scene = new Scene(loadFXML("primary"), 640, 480);
+        // Set the title for the stage
+        stage.setTitle("El Chicos Language Learning App");
         stage.setScene(scene);
         stage.show();
     }

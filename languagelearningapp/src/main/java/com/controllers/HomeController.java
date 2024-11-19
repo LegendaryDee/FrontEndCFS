@@ -20,6 +20,11 @@ public class HomeController implements Initializable {
         com.language.App.setRoot("signup");
     }
 
+    @FXML
+    private void onSigninAsGuestClicked(ActionEvent event) throws IOException {
+        com.language.App.setRoot("guest");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }

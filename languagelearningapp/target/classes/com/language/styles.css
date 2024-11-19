@@ -14,3 +14,7 @@
     -fx-background-color: #701fda;
     -fx-text-fill: white;
 }
+
+.AnchorPane {
+    -fx-background-color:#701fda;
+}

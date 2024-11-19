@@ -13,9 +13,10 @@
          <Button fx:id="button" layoutX="276.0" layoutY="234.0" onAction="#onLoginClicked" text="Login" />
          <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Button fx:id="button1" layoutX="272.0" layoutY="279.0" onAction="#onSignupClicked" text="Signup" />
+      <Button fx:id="button2" layoutX="275.0" layoutY="324.0" onAction="#onSigninAsGuestClicked" text="Guest" />
       <ImageView fitHeight="122.0" fitWidth="103.0" layoutX="248.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../Downloads/Subject.png" />
+            <Image url="@/languagelearningapp/src/main/resources/languagelearningapp/images/Subject.png" />
          </image>
       </ImageView>
       <Label layoutX="170.0" layoutY="50.0" text="EL Chicos Language Learning App">
