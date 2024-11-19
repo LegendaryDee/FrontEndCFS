@@ -206,4 +206,8 @@ public class User {
                 ", courses=" + courses +
                 '}';
     }
+
+    public void updateProfile(String string, String string2, LanguagePreference spanish, int i,
+            ProgressData progressData2) {
+    }
 }
