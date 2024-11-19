@@ -62,12 +62,12 @@ public class SignupController implements Initializable {
 
         library.login(username);
         User user = library.getCurrentUser();
-        com.library.App.setRoot("user_home");
+        com.language.App.setRoot("user_home");
     }
 
     @FXML
     private void back(MouseEvent event) throws IOException {
-        com.library.App.setRoot("home");
+        com.language.App.setRoot("home");
     }
 
     @Override
