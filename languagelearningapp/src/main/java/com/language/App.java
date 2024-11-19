@@ -29,7 +29,7 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         // Use a classpath-relative path with a leading slash to ensure it's located in the resources folder
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/com/language/" + fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         System.out.println(fxmlLoader.toString());
         if (fxmlLoader.getLocation() == null) {
             throw new IOException("FXML file not found: " + fxml + ".fxml");
