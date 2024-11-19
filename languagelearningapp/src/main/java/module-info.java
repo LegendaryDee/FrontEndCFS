@@ -11,6 +11,7 @@ module languagelearningapp {
     requires org.slf4j.simple;
     requires software.amazon.awssdk.awscore;
     requires software.amazon.eventstream;
+    requires transitive javafx.graphics;
 
     
     opens com.language to javafx.fxml;
@@ -27,8 +28,4 @@ module languagelearningapp {
 
     opens com.data to javafx.fxml;
     exports com.data;
-
-    opens com.library to javafx.fxml;
-    exports com.library;
-
 }
