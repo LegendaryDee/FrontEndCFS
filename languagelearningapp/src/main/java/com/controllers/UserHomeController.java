@@ -43,7 +43,45 @@ public class UserHomeController implements Initializable {
         library = Library.getInstance();
         user = library.getCurrentUser();
         
-        lbl_title.setText("Welcome " + user.getFirstName() + " " + user.getLastName());
-        
-    }   
+        if(user != null) {
+            lbl_title.setText("Welcome " + user.getFirstName() + " " + user.getLastName());
+        }else{
+            lbl_title.setText("Welcome, guest!");
+        }
+    }
+    
+    @FXML
+    private void logout(MouseEvent event) throws IOException {
+        com.language.App.setRoot("login");
+    }
+
+    @FXML
+    private void courses(MouseEvent event) throws IOException {
+        com.language.App.setRoot("courses");
+    }
+
+    @FXML
+    private void progressdata(MouseEvent event) throws IOException {
+        com.language.App.setRoot("progress_data");
+    }
+
+    @FXML
+    private void practiceoptions(MouseEvent event) throws IOException {
+        com.language.App.setRoot("practice_options");
+    }
+
+    @FXML
+    private void addcourses(MouseEvent event) throws IOException {
+        com.language.App.setRoot("add_courses");
+    }
+
+    @FXML
+    private void settingsandprofile(MouseEvent event) throws IOException {
+        com.language.App.setRoot("settings_and_profile");
+    }
+
+    @FXML
+    private void notifications(MouseEvent event) throws IOException {
+        com.language.App.setRoot("notifications");
+    }
 }
