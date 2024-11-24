@@ -12,7 +12,7 @@
          <Button fx:id="button" layoutX="268.0" layoutY="187.0" onAction="#onLoginClicked" prefHeight="26.0" prefWidth="56.0" text="Login" />
          <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Button fx:id="button1" layoutX="268.0" layoutY="227.0" onAction="#onSignupClicked" text="Signup" />
-      <Button fx:id="button2" layoutX="268.0" layoutY="266.0" onAction="#onSigninAsGuestClicked" prefHeight="26.0" prefWidth="56.0" text="Guest" />
+      <Button fx:id="button2" layoutX="268.0" layoutY="266.0" onMouseClicked="#onSigninAsGuestClicked" prefHeight="26.0" prefWidth="56.0" text="Guest" />
       
       <Label alignment="CENTER" layoutX="170.0" layoutY="36.0" text="EL Chicos Language Learning App" textAlignment="CENTER">
          <font>

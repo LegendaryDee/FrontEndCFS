@@ -44,7 +44,7 @@ public class UserHomeController implements Initializable {
         user = library.getCurrentUser();
         
         if(user != null) {
-            lbl_title.setText("Welcome " + user.getFirstName() + " " + user.getLastName());
+            lbl_title.setText("Welcome " + user.getUserName());
         }else{
             lbl_title.setText("Welcome, guest!");
         }

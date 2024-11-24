@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-// import library.App;
 
 public class SignupController implements Initializable {
     @FXML
@@ -68,6 +67,11 @@ public class SignupController implements Initializable {
     @FXML
     private void back(MouseEvent event) throws IOException {
         com.language.App.setRoot("home");
+    }
+
+    @FXML
+    private void Submit(MouseEvent event) throws IOException {
+        com.language.App.setRoot("user_home");
     }
 
     @Override
