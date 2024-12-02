@@ -6,12 +6,12 @@ import java.util.ResourceBundle;
 
 import com.model.*;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-// import library.App;
 
 public class LoginController implements Initializable {
     @FXML
@@ -22,22 +22,22 @@ public class LoginController implements Initializable {
     private Label lbl_error;
 
     @FXML
-    private void btnLoginClicked(MouseEvent event) throws IOException {
+    private void onLogin(ActionEvent event) throws IOException {
         String username = txt_username.getText();
         String password = txt_password.getText();
 
         Library library = Library.getInstance();
+        User user = library.authenticateUser(username, password);
 
-        if (!library.login(username)) {
-            lbl_error.setText("Invalid login credentials.");
-            return;
+        if (user != null) {
+            library.setCurrentUser(user); // Set the current user in the Library
+            library.setUsername(username);
+            com.language.App.setRoot("user_home");
+            
+        } else {
+            // Show an error dialog or message
+            lbl_error.setText("Invalid username or password.");
         }
-        if (!library.login(password)) {
-            lbl_error.setText("Invalid login credentials.");
-            return;
-        }
-
-        com.language.App.setRoot("user_home");
     }
 
     @FXML

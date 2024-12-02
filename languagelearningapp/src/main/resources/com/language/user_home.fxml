@@ -15,7 +15,7 @@
             <Image url="@../../languagelearningapp/images/Subject.png" />
          </image>
       </ImageView>
-      <Label fx:id="lbl_title" layoutX="262.0" layoutY="198.0" prefHeight="26.0" prefWidth="105.0" text="Welcome!" />
+      <Label fx:id="lbl_title" layoutX="262.0" layoutY="198.0" prefHeight="26.0" prefWidth="164.0"/>
       <Button layoutX="212.0" layoutY="318.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" text="Progress Data" />
       <Button layoutX="212.0" layoutY="372.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" text="Practice Options" />
       <Button layoutX="212.0" layoutY="426.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" text="Add Courses" />

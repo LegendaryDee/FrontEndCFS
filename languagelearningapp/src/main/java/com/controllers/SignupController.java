@@ -71,7 +71,7 @@ public class SignupController implements Initializable {
 
     @FXML
     private void Submit(MouseEvent event) throws IOException {
-        com.language.App.setRoot("user_home");
+        com.language.App.setRoot("login");
     }
 
     @Override

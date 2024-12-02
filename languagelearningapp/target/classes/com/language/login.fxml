@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" fx:id="login_pane" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginController">
-   <children>
-      <Label alignment="CENTER" layoutX="249.0" layoutY="22.0" prefHeight="37.0" prefWidth="173.0" text="Login">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="84.0" layoutY="71.0" text="Username:" />
-      <Label layoutX="84.0" layoutY="125.0" prefHeight="26.0" prefWidth="105.0" text="Password:" />
-      <Button layoutX="255.0" layoutY="174.0" mnemonicParsing="false" onMouseClicked="#btnLoginClicked" prefHeight="24.0" prefWidth="173.0" style="-fx-border-color: violet; -fx-border-width: 2;" text="Login" />
-      <TextField fx:id="txt_username" layoutX="215.0" layoutY="67.0" style="-fx-background-color: white;" />
-      <TextField fx:id="txt_password" layoutX="215.0" layoutY="121.0" style="-fx-background-color: white;" />
-      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="15.0" prefWidth="75.0" text="back">
-         <font>
-            <Font size="10.0" />
-         </font></Button>
-   </children>
-   <stylesheets>
-      <URL value="@styles.css" />
-   </stylesheets>
-</AnchorPane>
+<VBox alignment="CENTER" spacing="20" style="-fx-padding: 30; -fx-background-color: mediumpurple; -fx-alignment: center;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginController">
+
+    <!-- Title -->
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Login" />
+
+    <!-- Username Field -->
+    <HBox alignment="CENTER" spacing="10">
+        <Label style="-fx-font-size: 14px;" text="Username:" />
+        <TextField fx:id="txt_username" prefWidth="200" promptText="Enter your username" />
+    </HBox>
+
+    <!-- Password Field -->
+    <HBox alignment="CENTER" spacing="10">
+        <Label style="-fx-font-size: 14px;" text="Password:" />
+        <TextField fx:id="txt_password" prefWidth="200" promptText="Enter your password" />
+    </HBox>
+
+    <!-- Buttons -->
+    <HBox alignment="CENTER" spacing="15">
+        <Button onAction="#onLogin" prefWidth="80" text="Login" />
+        <Button mnemonicParsing="false" onMouseClicked="#back" prefHeight="15.0" prefWidth="80.0" text="back" />
+    </HBox>
+
+    <!-- Error Message -->
+    <Label fx:id="lbl_error" style="-fx-text-fill: red; -fx-font-size: 12px;" />
+</VBox>

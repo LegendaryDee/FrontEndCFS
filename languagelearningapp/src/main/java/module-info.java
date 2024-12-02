@@ -12,6 +12,7 @@ module languagelearningapp {
     requires software.amazon.awssdk.awscore;
     requires software.amazon.eventstream;
     requires transitive javafx.graphics;
+    requires javafx.base;
 
     
     opens com.language to javafx.fxml;

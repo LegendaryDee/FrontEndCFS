@@ -18,14 +18,14 @@ public class Course {
     private Language selectedLanguage;
     
     
-    public Course(UUID id, Language selectedLanguage, String title, List<Lesson> lessons, String description, Proficiency proficiency) {
+    public Course(UUID id, Language language, String title, List<Lesson> lessons, String description, Proficiency difficulty) {
         this.id = id;
         this.title = title;
         this.lessons = lessons;
         this.description = description;
         this.topics = new ArrayList<>();
-        this.proficiency = proficiency;
-        this.selectedLanguage = selectedLanguage;
+        this.proficiency = difficulty;
+        this.selectedLanguage = language;
         this.score = 0;
     }
     

@@ -9,6 +9,7 @@ public class Library {
     private static Library instance;
 
     // Fields
+    private String username;
     private User currentUser; // Stores the currently logged-in user
     private List<User> users; // List of registered users
     private List<Course> courses; // Example list of courses in the library
@@ -31,6 +32,14 @@ public class Library {
         return instance;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
     // Get the currently logged-in user
     public User getCurrentUser() {
         return currentUser;
@@ -39,6 +48,13 @@ public class Library {
     // Set the currently logged-in user
     public void setCurrentUser(User user) {
         this.currentUser = user;
+    }
+
+    public User authenticateUser(String username, String password) {
+        if("user".equals(username) && "password".equals(password)) {
+            return new User(UUID.randomUUID(), username, password, null, null, null, 0);
+        }
+        return null;
     }
 
     // Create a new account

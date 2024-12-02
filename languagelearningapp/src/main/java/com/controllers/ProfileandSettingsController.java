@@ -1,7 +1,10 @@
 package com.controllers;
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 
@@ -36,6 +39,11 @@ public void saveSettings() {
     // Save the settings (e.g., to a configuration file)
     System.out.println("Settings saved: " + notifications + ", " + darkMode + ", " + showOnlineStatus + ", " + language);
 }
+
+@FXML
+    private void back(MouseEvent event) throws IOException {
+        com.language.App.setRoot("user_home");
+    }
 
 @FXML
 public void initialize() {
