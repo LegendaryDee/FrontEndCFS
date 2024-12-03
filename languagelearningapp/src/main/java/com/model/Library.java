@@ -32,6 +32,10 @@ public class Library {
         return instance;
     }
 
+    public void addUser(User user) {
+        users.add(user);
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -51,10 +55,13 @@ public class Library {
     }
 
     public User authenticateUser(String username, String password) {
-        if("user".equals(username) && "password".equals(password)) {
-            return new User(UUID.randomUUID(), username, password, null, null, null, 0);
+        for(User user : users) {
+        if(user.getUserName().equals(username) && user.getPassword().equals(password)) {
+            return user;
         }
-        return null;
+    }
+    System.out.println("Authentication failed for: " + username);
+    return null;
     }
 
     // Create a new account

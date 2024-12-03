@@ -26,7 +26,8 @@
       <TextField fx:id="txt_last_name" layoutX="283.0" layoutY="238.0" style="-fx-background-color: white;" />
       <TextField fx:id="txt_age" layoutX="283.0" layoutY="285.0" style="-fx-background-color: white;" />
       <TextField fx:id="txt_phone_number" layoutX="283.0" layoutY="331.0" style="-fx-background-color: white;" />
-      <Button layoutX="323.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#Submit" prefHeight="24.0" prefWidth="174.0" text="Submit" />
+      <Label fx:id="lbl_error" style="-fx-font-size: 14px; -fx-text-fill: red;" />
+      <Button layoutX="323.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#btnSignupClicked" prefHeight="24.0" prefWidth="174.0" text="Submit" />
       <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="15.0" prefWidth="75.0" text="back">
          <font>
             <Font size="10.0" />

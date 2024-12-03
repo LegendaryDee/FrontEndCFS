@@ -22,9 +22,12 @@ public class UserHomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         String username = Library.getInstance().getUsername();
+        if(username == null) {
+            lbl_title.setText("Welcome Guest");
+        }else{
         lbl_title.setText("Welcome " + username);
     }
-    
+}
     @FXML
     private void logout(MouseEvent event) throws IOException {
         com.language.App.setRoot("login");

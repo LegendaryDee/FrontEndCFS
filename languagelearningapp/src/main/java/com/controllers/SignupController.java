@@ -54,6 +54,10 @@ public class SignupController implements Initializable {
 
         Library library = Library.getInstance();
 
+        User newUser = new User(null, username, password, null, null, null, age);
+        library.addUser(newUser);
+        com.language.App.setRoot("login");
+
         if (!library.createAccount(username, firstName, lastName, age, phoneNumber)) {
             lbl_error.setText("Sorry, this user couldn't be created.");
             return;
@@ -69,10 +73,10 @@ public class SignupController implements Initializable {
         com.language.App.setRoot("home");
     }
 
-    @FXML
-    private void Submit(MouseEvent event) throws IOException {
-        com.language.App.setRoot("login");
-    }
+    // @FXML
+    // private void Submit(MouseEvent event) throws IOException {
+    //     com.language.App.setRoot("login");
+    // }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

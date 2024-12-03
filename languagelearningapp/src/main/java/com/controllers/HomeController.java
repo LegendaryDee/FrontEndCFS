@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 // import library.App;
-import javafx.scene.input.MouseEvent;
+
 
 public class HomeController implements Initializable {
 
@@ -22,7 +22,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void onSigninAsGuestClicked(MouseEvent event) throws IOException {
+    private void onSigninAsGuestClicked(ActionEvent event) throws IOException {
         com.language.App.setRoot("user_home");
     }
 

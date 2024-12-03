@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.controllers.PracticeOptionsController">
+    
+    <!-- Top Section: Title -->
+    <top>
+        <Label text="Practice Options" 
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;" 
+               alignment="CENTER" />
+    </top>
+    
+    <!-- Center Section: Buttons for Practice Options -->
+    <center>
+        <VBox alignment="CENTER" spacing="15.0" style="-fx-padding: 20;">
+            <Button text="Flashcards" 
+                    fx:id="btnFlashcards" 
+                    onAction="#goToFlashcards"
+                    style="-fx-font-size: 16px; -fx-padding: 10;" 
+                    prefWidth="200" />
+            
+            <Button text="Picture Exercises" 
+                    fx:id="btnPictureExercises" 
+                    onAction="#goToPictureExercises"
+                    style="-fx-font-size: 16px; -fx-padding: 10;" 
+                    prefWidth="200" />
+            
+            <Button text="Dictionary" 
+                    fx:id="btnDictionary" 
+                    onAction="#openDictionary"
+                    style="-fx-font-size: 16px; -fx-padding: 10;" 
+                    prefWidth="200" />
+        </VBox>
+    </center>
+    
+    <!-- Bottom Section: Back Button -->
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-padding: 10;">
+            <Button text="Back" 
+                    onAction="#goBack"
+                    style="-fx-font-size: 14px;" />
+        </HBox>
+    </bottom>
+</BorderPane>

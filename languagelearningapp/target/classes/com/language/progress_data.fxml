@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.controllers.ProgressDataController"
+            style="-fx-padding: 20; -fx-font-family: Arial;">
+    <!-- Top Section: Title -->
+    <top>
+        <Label text="User Progress" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 10;" BorderPane.alignment="CENTER" />
+    </top>
+
+    <!-- Center Section: Progress Details -->
+    <center>
+        <VBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 20;">
+            <Label fx:id="lbl_userID" text="User ID: " />
+            <Label fx:id="lbl_lessonsCompleted" text="Lessons Completed: " />
+            <Label fx:id="lbl_attempts" text="Attempts: " />
+            <Label fx:id="lbl_totalScore" text="Total Score: " />
+            
+            <Label text="Course Completion:" />
+            <ProgressBar fx:id="progress_courseCompletion" prefWidth="300" />
+
+            <Label text="Struggling Words:" />
+            <ListView fx:id="list_strugglingWords" prefHeight="100" prefWidth="300" />
+
+            <Label text="Struggling Phrases:" />
+            <ListView fx:id="list_strugglingPhrases" prefHeight="100" prefWidth="300" />
+        </VBox>
+    </center>
+
+    <!-- Bottom Section: Actions -->
+    <bottom>
+        <VBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="txt_addScore" promptText="Add Score" />
+                <Button text="Add Score" onAction="#addScore" />
+            </HBox>
+            <Button text="Save Progress" onAction="#saveProgress" style="-fx-padding: 5 20;" />
+        </VBox>
+    </bottom>
+</BorderPane>
