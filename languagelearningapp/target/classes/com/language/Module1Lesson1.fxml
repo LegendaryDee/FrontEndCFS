@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.controllers.Module1Controller">
+    <Label text="Module 1: Basics" layoutX="20" layoutY="20" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+
+    <Label fx:id="lbl_lessonContent" layoutX="20" layoutY="60" wrapText="true" prefWidth="360" style="-fx-font-size: 14;" />
+
+    <Button text="Start Quiz" layoutX="20" layoutY="280" onMouseClicked="#startQuiz" />
+    <Button text="Back to Main" layoutX="120" layoutY="280" onMouseClicked="#backToMain" />
+</AnchorPane>
