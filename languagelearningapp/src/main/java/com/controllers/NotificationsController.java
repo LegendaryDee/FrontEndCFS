@@ -21,7 +21,7 @@ public class NotificationsController {
         notifications = FXCollections.observableArrayList(
             "New message received",
             "System update available",
-            "Reminder: Meeting at 3 PM"
+            "Reminder: Study for spanish assessment"
         );
 
         // Bind the list to the ListView

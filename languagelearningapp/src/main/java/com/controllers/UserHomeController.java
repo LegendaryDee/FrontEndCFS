@@ -21,11 +21,15 @@ public class UserHomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String username = Library.getInstance().getUsername();
-        if(username == null) {
-            lbl_title.setText("Welcome Guest");
-        }else{
-        lbl_title.setText("Welcome " + username);
+        library = Library.getInstance();
+    user = library.getCurrentUser();
+    
+    if (user != null) {
+        System.out.println("Current User: " + user.getUserName()); // Debugging
+        lbl_title.setText("Welcome " + user.getUserName());
+    } else {
+        System.out.println("No user found. Showing guest view."); // Debugging
+        lbl_title.setText("Welcome, guest!");
     }
 }
     @FXML

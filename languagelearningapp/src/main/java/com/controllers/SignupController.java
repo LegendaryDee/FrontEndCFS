@@ -40,31 +40,45 @@ public class SignupController implements Initializable {
 
         try {
             age = Integer.parseInt(txt_age.getText());
+            if (age <= 0) {
+                lbl_error.setText("Age must be a positive number.");
+                return;
+            }
         } catch (Exception e) {
             lbl_error.setText("Sorry, you must enter a valid age.");
             return;
         }
 
+        if (phoneNumber.isEmpty()) {
+            lbl_error.setText("Phone number cannot be  empty.");
+            return;
+        }
+
+        if (!phoneNumber.matches("[0-9\\-]+")) {
+            lbl_error.setText("Phone number can only contain digits and dashes.");
+            return;
+        }
+
+        if (phoneNumber.length() < 10 || phoneNumber.length() > 15) {
+            lbl_error.setText("Phone number must be between 10 and 15 digits.");
+            return;
+        }
+
         // check for empty fields
-        if (username.equals("") || password.equals("") || firstName.equals("") || lastName.equals("")
-                || phoneNumber.equals("")) {
+        if (username.equals("") || password.equals("") || firstName.equals("") || lastName.equals("")) {
             lbl_error.setText("Sorry, You cannot leave blank fields");
             return;
         }
 
         Library library = Library.getInstance();
 
-        User newUser = new User(null, username, password, null, null, null, age);
-        library.addUser(newUser);
-        com.language.App.setRoot("login");
-
         if (!library.createAccount(username, firstName, lastName, age, phoneNumber)) {
-            lbl_error.setText("Sorry, this user couldn't be created.");
+            lbl_error.setText("Username already exists. Please choose another.");
             return;
         }
 
+        com.language.App.setRoot("login");
         library.login(username);
-        User user = library.getCurrentUser();
         com.language.App.setRoot("user_home");
     }
 
@@ -73,13 +87,8 @@ public class SignupController implements Initializable {
         com.language.App.setRoot("home");
     }
 
-    // @FXML
-    // private void Submit(MouseEvent event) throws IOException {
-    //     com.language.App.setRoot("login");
-    // }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }
 }

@@ -1,12 +1,16 @@
 package com.controllers;
 
+import java.io.IOException;
+
 import com.model.ProgressData;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class ProgressDataController {
     private ProgressData progressData;
@@ -52,7 +56,7 @@ public class ProgressDataController {
     }
 
     @FXML
-    private void addScore() {
+    private void addScore(ActionEvent event) throws IOException {
         try {
             int score = Integer.parseInt(txt_addScore.getText());
             progressData.addScore(score);
@@ -63,7 +67,12 @@ public class ProgressDataController {
     }
 
     @FXML
-    private void saveProgress() {
+    private void saveProgress(ActionEvent event) throws IOException {
         progressData.saveProgress();
+    }
+
+    @FXML
+    private void back(MouseEvent event) throws IOException {
+        com.language.App.setRoot("user_home");
     }
 }

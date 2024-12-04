@@ -74,15 +74,7 @@ public class Library {
         }
 
         // Create and add a new user
-        User newUser = new User(
-                UUID.randomUUID(),
-                username,
-                "defaultPassword", // Temporary default password
-                firstName + "@example.com", // Temporary email
-                LanguagePreference.ENGLISH, // Default language
-                new ProgressData(UUID.randomUUID().toString()),
-                1
-        );
+        User newUser = new User(null, username, null, null, null, null, age);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setAge(age);

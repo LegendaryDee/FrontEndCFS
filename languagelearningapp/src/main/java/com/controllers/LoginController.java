@@ -30,13 +30,11 @@ public class LoginController implements Initializable {
         User user = library.authenticateUser(username, password);
 
         if (user != null) {
-            library.setCurrentUser(user); // Set the current user in the Library
-            library.setUsername(username);
+            // library.setCurrentUser(user);
             com.language.App.setRoot("user_home");
-            
         } else {
-            // Show an error dialog or message
             lbl_error.setText("Invalid username or password.");
+            lbl_error.setVisible(true);
         }
     }
 

@@ -39,6 +39,7 @@
                 <Button text="Add Score" onAction="#addScore" />
             </HBox>
             <Button text="Save Progress" onAction="#saveProgress" style="-fx-padding: 5 20;" />
+            <Button text="Back" mnemonicParsing="false" onMouseClicked="#back"/>
         </VBox>
     </bottom>
 </BorderPane>

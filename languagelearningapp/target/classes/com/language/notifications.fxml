@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.controllers.NotificationsController">
+<BorderPane prefHeight="417.0" prefWidth="597.0" stylesheets="@styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.controllers.NotificationsController">
     <!-- Top Section: Title -->
     <top>
-        <Label text="Notifications" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 10;" />
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="600.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 10; -fx-background-color: blueviolet;" text="Notifications" />
     </top>
 
     <!-- Center Section: Notifications List -->
     <center>
-        <ListView fx:id="notificationsListView" prefHeight="200" prefWidth="300" />
+        <ListView fx:id="notificationsListView" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: whitesmoke;" />
     </center>
 
     <!-- Bottom Section: Controls -->
     <bottom>
-        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
-            <Button text="Clear All" onAction="#clearAllNotifications" />
-            <Button text="Dismiss Selected" onAction="#dismissSelectedNotification" />
-            <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="15.0" prefWidth="75.0" text="back"/>
+        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10; -fx-background-color: blueviolet;">
+            <Button onAction="#clearAllNotifications" prefWidth="110.0" text="Clear All" />
+            <Button onAction="#dismissSelectedNotification" text="Dismiss Selected" />
+            <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="40.0" prefWidth="110.0" text="back" />
         </HBox>
     </bottom>
 </BorderPane>

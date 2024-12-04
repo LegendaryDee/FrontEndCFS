@@ -1,65 +1,87 @@
 package com.controllers;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javafx.event.ActionEvent;
+import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class PictureExerciseController {
     @FXML
-    private ImageView exerciseImage;
-
+    private TextField txtObjectInSpanish; // Answer for "Spell the object in Spanish"
     @FXML
-    private TextField answerField;
-
+    private TextField txtEventDescription; // Answer for "What event is taking place"
     @FXML
-    private Label feedbackLabel;
-
-    private Map<Image, String> exercises;
-    private Image currentImage;
-    private int currentIndex;
-
+    private TextField txtGreetingInEnglish; // Answer for "Spell the greeting in English"
     @FXML
+    private Label lblFeedback; // To display feedback and grade
+    @FXML
+    private Button btnSubmit; // Submit button
+    @FXML
+    private Button btnReset; // Reset button
+    @FXML
+    private Button btnBack;
+
+    // Correct answers (example values)
+    private final String correctObjectInSpanish = "pantalones"; // Example: apple in Spanish
+    private final String correctEventDescription = "birthday"; // Example: birthday event
+    private final String correctGreetingInEnglish = "what's happening"; // Example: greeting in English
+
     public void initialize() {
-        // Initialize exercises
-        exercises = new HashMap<>();
-        exercises.put(new Image("languagelearningapp/images/greet.png"), "Manzana"); // "Apple"
-        exercises.put(new Image("languagelearningapp/images/hbday.png"), "Casa"); // "House"
-        exercises.put(new Image("languagelearningapp/images/pants.png"), "Libro"); // "Book"
-
-        currentIndex = 0;
-        loadExercise();
+        lblFeedback.setText(""); // Clear feedback initially
     }
 
     @FXML
-    private void checkAnswer(ActionEvent event) {
-        String userAnswer = answerField.getText().trim();
-        String correctAnswer = exercises.get(currentImage);
+    private void onSubmitClicked(MouseEvent event) {
+        // Get user input
+        String objectInSpanish = txtObjectInSpanish.getText().trim().toLowerCase();
+        String eventDescription = txtEventDescription.getText().trim().toLowerCase();
+        String greetingInEnglish = txtGreetingInEnglish.getText().trim().toLowerCase();
 
-        if (userAnswer.equalsIgnoreCase(correctAnswer)) {
-            feedbackLabel.setText("Correct!");
-            feedbackLabel.setStyle("-fx-text-fill: green;");
-        } else {
-            feedbackLabel.setText("Incorrect. Try again.");
-            feedbackLabel.setStyle("-fx-text-fill: red;");
+        // Initialize score
+        int score = 0;
+
+        // Validate answers
+        if (objectInSpanish.equals(correctObjectInSpanish)) {
+            score++;
         }
+        if (eventDescription.equals(correctEventDescription)) {
+            score++;
+        }
+        if (greetingInEnglish.equals(correctGreetingInEnglish)) {
+            score++;
+        }
+
+        // Display grade and feedback
+        lblFeedback.setText("Your score: " + score + "/3\n" + generateFeedback(score));
     }
 
     @FXML
-    private void nextExercise(ActionEvent event) {
-        currentIndex = (currentIndex + 1) % exercises.size();
-        loadExercise();
-        answerField.clear();
-        feedbackLabel.setText("");
+    private void onResetClicked(MouseEvent event) {
+        // Clear input fields and feedback
+        txtObjectInSpanish.clear();
+        txtEventDescription.clear();
+        txtGreetingInEnglish.clear();
+        lblFeedback.setText("");
     }
 
-    private void loadExercise() {
-        currentImage = (Image) exercises.keySet().toArray()[currentIndex];
-        exerciseImage.setImage(currentImage);
+    @FXML
+    private void back(MouseEvent event) throws IOException {
+        com.language.App.setRoot("practice_options");
     }
+
+    // Helper method to generate feedback based on score
+    private String generateFeedback(int score) {
+        switch (score) {
+            case 3:
+                return "Excellent! You got everything correct!";
+            case 2:
+                return "Good job! You got 2 out of 3.";
+            case 1:
+                return "Keep trying! You got 1 out of 3.";
+            default:
+                return "Better luck next time! Try again.";
+    }
+}
 }
