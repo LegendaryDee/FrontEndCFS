@@ -59,8 +59,8 @@ public class SignupController implements Initializable {
             return;
         }
 
-        if (phoneNumber.length() < 10 || phoneNumber.length() > 15) {
-            lbl_error.setText("Phone number must be between 10 and 15 digits.");
+        if (phoneNumber.length() < 12 || phoneNumber.length() > 12) {
+            lbl_error.setText("Phone number must be a 12 digit number.");
             return;
         }
 

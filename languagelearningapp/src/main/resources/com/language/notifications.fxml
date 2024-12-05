@@ -20,9 +20,9 @@
     <!-- Bottom Section: Controls -->
     <bottom>
         <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10; -fx-background-color: blueviolet;">
-            <Button onAction="#clearAllNotifications" prefWidth="110.0" text="Clear All" />
+            <Button onAction="#clearAllNotifications" prefWidth="115.0" text="Clear All" />
             <Button onAction="#dismissSelectedNotification" text="Dismiss Selected" />
-            <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="40.0" prefWidth="110.0" text="back" />
+            <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="40.0" prefWidth="115.0" text="back" />
         </HBox>
     </bottom>
 </BorderPane>

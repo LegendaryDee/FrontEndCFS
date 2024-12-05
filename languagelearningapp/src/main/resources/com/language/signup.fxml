@@ -9,30 +9,40 @@
 
 <AnchorPane id="AnchorPane" fx:id="signup_pane" prefHeight="473.0" prefWidth="600.0" style="-fx-background-color: mediumpurple;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SignupController">
    <children>
+      <!-- Title -->
       <Label alignment="CENTER" layoutX="344.0" layoutY="29.0" prefHeight="33.0" prefWidth="131.0" text="Signup">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" layoutX="96.0" layoutY="101.0" prefHeight="26.0" prefWidth="150.0" text="Username:" />
-      <Label alignment="TOP_LEFT" layoutX="96.0" layoutY="146.0" prefHeight="26.0" prefWidth="150.0" text="Password:" />
-      <Label alignment="TOP_LEFT" layoutX="97.0" layoutY="196.0" prefHeight="26.0" prefWidth="150.0" text="First Name:" />
-      <Label alignment="TOP_LEFT" layoutX="99.0" layoutY="242.0" prefHeight="26.0" prefWidth="150.0" text="Last Name:" />
-      <Label alignment="TOP_LEFT" layoutX="100.0" layoutY="289.0" prefHeight="26.0" prefWidth="150.0" text="Age:" />
-      <Label alignment="TOP_LEFT" layoutX="101.0" layoutY="335.0" prefHeight="26.0" prefWidth="150.0" text="Phone Number:" />
-      <TextField fx:id="txt_username" layoutX="283.0" layoutY="94.0" style="-fx-background-color: white;" />
-      <TextField fx:id="txt_password" layoutX="283.0" layoutY="142.0" style="-fx-background-color: white;" />
-      <TextField fx:id="txt_first_name" layoutX="283.0" layoutY="192.0" style="-fx-background-color: white;" />
-      <TextField fx:id="txt_last_name" layoutX="283.0" layoutY="238.0" style="-fx-background-color: white;" />
-      <TextField fx:id="txt_age" layoutX="283.0" layoutY="285.0" style="-fx-background-color: white;" />
-      <TextField fx:id="txt_phone_number" layoutX="283.0" layoutY="331.0" style="-fx-background-color: white;" />
-      <Label fx:id="lbl_error" style="-fx-font-size: 14px; -fx-text-fill: red;" />
+
+      <!-- Labels -->
+      <Label alignment="TOP_LEFT" layoutX="96.0" layoutY="101.0" text="Username:" />
+      <Label alignment="TOP_LEFT" layoutX="96.0" layoutY="146.0" text="Password:" />
+      <Label alignment="TOP_LEFT" layoutX="97.0" layoutY="196.0" text="First Name:" />
+      <Label alignment="TOP_LEFT" layoutX="99.0" layoutY="242.0" text="Last Name:" />
+      <Label alignment="TOP_LEFT" layoutX="100.0" layoutY="289.0" text="Age:" />
+      <Label alignment="TOP_LEFT" layoutX="101.0" layoutY="335.0" text="Phone Number:" />
+
+      <!-- Text Fields -->
+      <TextField fx:id="txt_username" layoutX="283.0" layoutY="94.0" promptText="Input username" style="-fx-background-color: white;" />
+      <TextField fx:id="txt_password" layoutX="283.0" layoutY="142.0" promptText="Input password" style="-fx-background-color: white;" />
+      <TextField fx:id="txt_first_name" layoutX="283.0" layoutY="192.0" promptText="Input first name" style="-fx-background-color: white;" />
+      <TextField fx:id="txt_last_name" layoutX="283.0" layoutY="238.0" promptText="Input last name" style="-fx-background-color: white;" />
+      <TextField fx:id="txt_age" layoutX="283.0" layoutY="285.0" promptText="Input age" style="-fx-background-color: white;" />
+      <TextField fx:id="txt_phone_number" layoutX="283.0" layoutY="331.0" promptText="Make sure to include -" style="-fx-background-color: white;" />
+
+      <!-- Error Label -->
+      <Label fx:id="lbl_error" layoutX="96.0" layoutY="380.0" style="-fx-font-size: 14px; -fx-text-fill: red;" text="" />
+
+      <!-- Buttons -->
       <Button layoutX="323.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#btnSignupClicked" prefHeight="24.0" prefWidth="174.0" text="Submit" />
-      <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="15.0" prefWidth="75.0" text="back">
+      <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="15.0" prefWidth="75.0" text="Back">
          <font>
             <Font size="10.0" />
-         </font></Button>
-      
+         </font>
+      </Button>
+
    </children>
    <stylesheets>
       <URL value="@styles.css" />
