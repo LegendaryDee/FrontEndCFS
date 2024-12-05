@@ -34,7 +34,7 @@
       <children>
       
           <!-- Question 3 -->
-          <Label text="Spell the greeting being used (in English):" />
+          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" text="Spell the greeting being used (in English):" textAlignment="CENTER" />
       </children>
    </AnchorPane>
    <ImageView fitHeight="111.0" fitWidth="101.0">
