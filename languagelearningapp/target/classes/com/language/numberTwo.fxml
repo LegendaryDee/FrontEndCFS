@@ -12,7 +12,7 @@
       <Button layoutX="147.0" layoutY="500.0" onAction="#handleButtonAction" prefHeight="78.0" prefWidth="307.0" stylesheets="@styles.css" text="Dos" />
       <ImageView fitHeight="273.0" fitWidth="307.0" layoutX="147.0" layoutY="14.0">
          <image>
-            <Image url="@../../languagelearningapp/images/2.png" />
+            <Image url="@../../languagelearningapp/images/two.png" />
          </image>
       </ImageView>
    </children>

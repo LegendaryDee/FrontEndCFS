@@ -6,18 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="600.0" style="-fx-background-color: mediumpurple;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="600.0" style="-fx-background-color: mediumpurple;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.questionEightController">
    <children>
-      <Button layoutX="147.0" layoutY="303.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="307.0" text="Ocho" />
-      <Button layoutX="147.0" layoutY="402.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="307.0" text="Tres" />
-      <Button layoutX="147.0" layoutY="500.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="307.0" text="Cuatro" />
+      <Button layoutX="147.0" layoutY="303.0" onAction="#handleButtonAction" prefHeight="78.0" prefWidth="307.0" stylesheets="@styles.css" text="Ocho" />
+      <Button layoutX="147.0" layoutY="402.0" onAction="#handleButtonAction" prefHeight="78.0" prefWidth="307.0" stylesheets="@styles.css" text="Tres" />
+      <Button layoutX="147.0" layoutY="500.0" onAction="#handleButtonAction" prefHeight="78.0" prefWidth="307.0" stylesheets="@styles.css" text="Cuatro" />
       <ImageView fitHeight="273.0" fitWidth="307.0" layoutX="147.0" layoutY="14.0">
          <image>
             <Image url="@../../languagelearningapp/images/8.png" />
          </image>
       </ImageView>
    </children>
-   <stylesheets>
-      <URL value="@styles.css" />
-   </stylesheets>
+   
 </AnchorPane>
