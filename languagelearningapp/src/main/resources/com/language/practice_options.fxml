@@ -1,48 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.controllers.PracticeOptionsController">
+<BorderPane style="-fx-background-color: mediumpurple;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.controllers.PracticeOptionsController">
     
     <!-- Top Section: Title -->
     <top>
-        <Label text="Practice Options" 
-               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;" 
-               alignment="CENTER" />
+        <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;" text="Practice Options" BorderPane.alignment="CENTER" />
     </top>
     
     <!-- Center Section: Buttons for Practice Options -->
     <center>
         <VBox alignment="CENTER" spacing="15.0" style="-fx-padding: 20;">
-            <Button text="Flashcards" 
-                    fx:id="btnFlashcards" 
-                    onAction="#goToFlashcards"
-                    style="-fx-font-size: 16px; -fx-padding: 10;" 
-                    prefWidth="200" />
+            <Button fx:id="btnFlashcards" onAction="#goToFlashcards" prefWidth="200" style="-fx-font-size: 16px; -fx-padding: 10;" text="Flashcards" />
             
-            <Button text="Picture Exercises" 
-                    fx:id="btnPictureExercises" 
-                    onAction="#goToPictureExercises"
-                    style="-fx-font-size: 16px; -fx-padding: 10;" 
-                    prefWidth="200" />
+            <Button fx:id="btnPictureExercises" onAction="#goToPictureExercises" prefWidth="200" style="-fx-font-size: 16px; -fx-padding: 10;" text="Picture Exercises" />
             
-            <Button text="Dictionary" 
-                    fx:id="btnDictionary" 
-                    onAction="#openDictionary"
-                    style="-fx-font-size: 16px; -fx-padding: 10;" 
-                    prefWidth="200" />
+            <Button fx:id="btnDictionary" onAction="#openDictionary" prefWidth="200" style="-fx-font-size: 16px; -fx-padding: 10;" text="Dictionary" />
         </VBox>
     </center>
     
     <!-- Bottom Section: Back Button -->
     <bottom>
         <HBox alignment="CENTER" style="-fx-padding: 10;">
-            <Button text="Back" 
-                    onAction="#goBack"
-                    style="-fx-font-size: 14px;" />
+            <Button mnemonicParsing="false" onMouseClicked="#goBack" style="-fx-font-size: 14px;" text="Back" />
         </HBox>
     </bottom>
 </BorderPane>

@@ -7,6 +7,7 @@ import com.language.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.input.MouseEvent;
 
 public class PracticeOptionsController {
      @FXML
@@ -20,7 +21,7 @@ public class PracticeOptionsController {
     }
 
     @FXML
-    private void goBack(ActionEvent event) throws IOException {
+    private void goBack(MouseEvent event) throws IOException {
         com.language.App.setRoot("user_home");
     }
 
