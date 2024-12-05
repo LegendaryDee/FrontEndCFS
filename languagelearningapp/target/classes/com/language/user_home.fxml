@@ -16,10 +16,10 @@
          </image>
       </ImageView>
       <Label fx:id="lbl_title" text="Welcome" layoutX="262.0" layoutY="198.0" prefHeight="26.0" prefWidth="164.0" />
-      <Button layoutX="212.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#progressdata" prefHeight="40.0" prefWidth="213.0" text="Progress Data" />
-      <Button layoutX="212.0" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#practiceoptions" prefHeight="40.0" prefWidth="213.0" text="Practice Options" />
-      <Button layoutX="212.0" layoutY="426.0" mnemonicParsing="false" onMouseClicked="#addcourses" prefHeight="40.0" prefWidth="213.0" text="Add Courses" />
-      <Button layoutX="212.0" layoutY="479.0" mnemonicParsing="false" onMouseClicked="#settingsandprofile" prefHeight="40.0" prefWidth="213.0" text="Settings and Profile" />
+      <Button layoutX="212.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#progress_data" prefHeight="40.0" prefWidth="213.0" text="Progress Data" />
+      <Button layoutX="212.0" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#practice_options" prefHeight="40.0" prefWidth="213.0" text="Practice Options" />
+      <Button layoutX="212.0" layoutY="426.0" mnemonicParsing="false" onMouseClicked="#add_courses" prefHeight="40.0" prefWidth="213.0" text="Add Courses" />
+      <Button layoutX="212.0" layoutY="479.0" mnemonicParsing="false" onMouseClicked="#settings_and_profile" prefHeight="40.0" prefWidth="213.0" text="Settings and Profile" />
       <Button layoutX="212.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#courses" prefHeight="40.0" prefWidth="213.0" text="Courses" />
       <Button layoutX="212.0" layoutY="533.0" mnemonicParsing="false" onMouseClicked="#notifications" prefHeight="40.0" prefWidth="213.0" text="Notifications" />
       <ImageView fitHeight="30.0" fitWidth="45.0" layoutX="212.0" layoutY="196.0">
