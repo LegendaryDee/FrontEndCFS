@@ -18,7 +18,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Correct path for loading FXML file
-        scene = new Scene(loadFXML("MainController"), 640, 480);
+        scene = new Scene(loadFXML("home"), 640, 480);
         // Set the title for the stage
         stage.setTitle("El Chicos Language Learning App");
         stage.setScene(scene);
