@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.controllers.MainController" spacing="20" alignment="CENTER" style="-fx-padding: 20;">
-    <Label text="Spanish Course Modules" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+<VBox alignment="CENTER" spacing="20" style="-fx-padding: 20; -fx-background-color: mediumpurple;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.MainController">
+    <Label style="-fx-font-size: 24; -fx-font-weight: bold;" text="Spanish Course Modules" textFill="WHITE" />
 
-    <TableView fx:id="modulesTable" style="-fx-pref-width: 600;">
+    <TableView fx:id="modulesTable" style="-fx-pref-width: 600; -fx-background-color: white;">
         <columns>
-            <TableColumn text="Module" fx:id="moduleColumn"/>
-            <TableColumn text="Description" fx:id="descriptionColumn"/>
-            <TableColumn text="Action" fx:id="actionColumn"/>
+            <TableColumn fx:id="moduleColumn" text="Module" />
+            <TableColumn fx:id="descriptionColumn" text="Description" />
+            <TableColumn fx:id="actionColumn" text="Action" />
         </columns>
     </TableView>
 
-    <Button text="Back" mnemonicParsing="false" onMouseClicked="#exitApplication"/>
+    <Button mnemonicParsing="false" onMouseClicked="#exitApplication" stylesheets="@styles.css" text="Back" />
 </VBox>
