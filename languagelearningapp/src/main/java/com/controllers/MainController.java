@@ -1,3 +1,6 @@
+/**
+ * @author Demetrius Mack 
+ */
 package com.controllers;
 
 import com.model.Course;
@@ -12,9 +15,6 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,13 +79,17 @@ public class MainController {
         alert.setContentText("You are about to start the lesson: " + course.getDescription());
         alert.showAndWait();
 
-        // If the course is "Basic Numbers in Spanish", load the numbers quiz screen
-        if (course.getTitle().equals("Basic Numbers in Spanish")) {
-            try {
-                com.language.App.setRoot("numberOne");  // Load the numberOne.fxml screen
-            } catch (IOException e) {
-                e.printStackTrace();
+        // Determine the action based on the course title
+        try {
+            if (course.getTitle().equals("Basic Numbers in Spanish")) {
+                com.language.App.setRoot("numberOne"); // Transition to numbers quiz
+            } else if (course.getTitle().equals("Spanish for Beginners")) {
+                com.language.App.setRoot("Quiz"); // Transition to the first Spanish lesson
+            } else if (course.getTitle().equals("Intermediate Spanish")) {
+                com.language.App.setRoot("FillInTheBlank"); // Transition to intermediate Spanish lesson
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

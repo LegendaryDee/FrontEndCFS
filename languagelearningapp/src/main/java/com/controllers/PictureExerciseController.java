@@ -1,6 +1,9 @@
 package com.controllers;
 
 import java.io.IOException;
+
+import com.narration.Narrator;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -45,12 +48,18 @@ public class PictureExerciseController {
         // Validate answers
         if (objectInSpanish.equals(correctObjectInSpanish)) {
             score++;
+        } else {
+            Narrator.playSound("Hint for Question 1: It's something you wear on your legs.\n");
         }
         if (eventDescription.equals(correctEventDescription)) {
             score++;
+        } else {
+            Narrator.playSound("Hint for Question 2: It's a celebration of someone's birth.\n");
         }
         if (greetingInEnglish.equals(correctGreetingInEnglish)) {
             score++;
+        } else {
+            Narrator.playSound("Hint for Question 3: It's a casual way to ask someone what's going on.\n");
         }
 
         // Display grade and feedback

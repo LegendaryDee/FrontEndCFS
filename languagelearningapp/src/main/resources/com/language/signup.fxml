@@ -33,7 +33,7 @@
       <TextField fx:id="txt_phone_number" layoutX="283.0" layoutY="331.0" promptText="Make sure to include -" style="-fx-background-color: white;" />
 
       <!-- Error Label -->
-      <Label fx:id="lbl_error" layoutX="96.0" layoutY="380.0" style="-fx-font-size: 14px; -fx-text-fill: red;" text="" />
+      <Label fx:id="lbl_error" layoutX="323.0" layoutY="459.0" style="-fx-font-size: 14px; -fx-text-fill: red;" text="" />
 
       <!-- Buttons -->
       <Button layoutX="323.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#btnSignupClicked" prefHeight="24.0" prefWidth="174.0" text="Submit" />

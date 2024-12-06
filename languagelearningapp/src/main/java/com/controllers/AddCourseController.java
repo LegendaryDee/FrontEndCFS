@@ -1,5 +1,6 @@
 package com.controllers;
 import com.model.Course;
+import com.model.CourseList;
 import com.model.Language;
 import com.model.Proficiency;
 import javafx.fxml.FXML;
@@ -35,24 +36,19 @@ public class AddCourseController {
 
         // Default title and description
         String defaultTitle = language + " Course";
-        String defaultDescription = "A " + difficulty + " level " + language + " course.";  // Default description
+        String defaultDescription = "A " + difficulty + " level " + language + " course.";
 
-        // Create a new course with default title and description
+        // Create a new course
         Course newCourse = new Course(UUID.randomUUID(), Language.valueOf(language.toUpperCase()), defaultTitle, null, defaultDescription, Proficiency.valueOf(difficulty.toUpperCase()));
 
-        // Manually refresh the course list in the management screen
-        CourseController courseController = getCourseController();
-        if (courseController != null) {
-            courseController.refreshCourseList();
-        }
+        // Add the course to the CourseList
+        CourseList.getInstance().addCourse(newCourse);
+
+        // Optionally, notify the CourseController to refresh its list
+        // Ensure CourseController.refreshCourseList() is called in its initialize method or externally
 
         showSuccess("Course Added", "The course '" + defaultTitle + "' has been added successfully.");
         clearFields();
-    }
-
-    private CourseController getCourseController() {
-        // Implement logic to retrieve a reference to CourseController
-        return null; // Replace with actual implementation
     }
 
     private void clearFields() {

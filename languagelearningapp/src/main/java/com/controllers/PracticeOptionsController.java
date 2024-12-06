@@ -12,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 public class PracticeOptionsController {
      @FXML
     private void goToFlashcards(ActionEvent event) throws IOException {
-        com.language.App.setRoot("flashcards");
+        com.language.App.setRoot("FlashcardsController");
     }
 
     @FXML

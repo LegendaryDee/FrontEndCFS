@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.model.*;
+import com.narration.Narrator;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,9 +28,11 @@ public class UserHomeController implements Initializable {
     if (user != null) {
         System.out.println("Current User: " + user.getUserName()); // Debugging
         lbl_title.setText("Welcome " + user.getUserName());
+        Narrator.playSound("Welcome " + user.getUserName());
     } else {
         System.out.println("No user found. Showing guest view."); // Debugging
         lbl_title.setText("Welcome, Guest!");
+        Narrator.playSound("Welcome, Guest!");
     }
 }
     @FXML

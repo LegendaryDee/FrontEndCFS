@@ -12,45 +12,50 @@
 <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="500.0" spacing="15.0" style="-fx-background-color: mediumpurple;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.PictureExerciseController">
 
     <!-- Question 1 -->
-    <Label text="Spell the object (in Spanish):" />
-   <ImageView fitHeight="111.0" fitWidth="101.0">
-      <image>
-         <Image url="@../../languagelearningapp/images/pants.png" />
-      </image>
-   </ImageView>
+    <Label text="Spell the object (in Spanish):" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+    <ImageView fitHeight="111.0" fitWidth="101.0">
+        <image>
+            <Image url="@../../languagelearningapp/images/pants.png" />
+        </image>
+    </ImageView>
     <TextField fx:id="txtObjectInSpanish" promptText="Enter the object's name in Spanish" style="-fx-border-color: blueviolet; -fx-border-width: 3;" />
-   <AnchorPane />
+
+    <!-- Spacer -->
+    <AnchorPane />
 
     <!-- Question 2 -->
-    <Label text="Spell the event taking place (in English):" />
-   <ImageView fitHeight="111.0" fitWidth="101.0">
-      <image>
-         <Image url="@../../languagelearningapp/images/hbday.png" />
-      </image>
-   </ImageView>
+    <Label text="Spell the event taking place (in English):" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+    <ImageView fitHeight="111.0" fitWidth="101.0">
+        <image>
+            <Image url="@../../languagelearningapp/images/hbday.png" />
+        </image>
+    </ImageView>
     <TextField fx:id="txtEventDescription" promptText="Describe the event" style="-fx-border-color: blueviolet; -fx-border-width: 3;" />
-   <AnchorPane />
-   <AnchorPane>
-      <children>
-      
-          <!-- Question 3 -->
-          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" text="Spell the greeting being used (in English):" textAlignment="CENTER" />
-      </children>
-   </AnchorPane>
-   <ImageView fitHeight="111.0" fitWidth="101.0">
-      <image>
-         <Image url="@../../languagelearningapp/images/greet.png" />
-      </image>
-   </ImageView>
-    <TextField fx:id="txtGreetingInEnglish" promptText="Enter the greeting" style="-fx-border-color: blueviolet; -fx-border-width: 3;" />
+
+    <!-- Spacer -->
+    <AnchorPane />
+
+    <!-- Question 3 -->
+    <VBox alignment="TOP_CENTER" spacing="10.0">
+        <Label text="Spell the greeting being used (in English):" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+        <ImageView fitHeight="111.0" fitWidth="101.0">
+            <image>
+                <Image url="@../../languagelearningapp/images/greet.png" />
+            </image>
+        </ImageView>
+        <TextField fx:id="txtGreetingInEnglish" promptText="Enter the greeting" style="-fx-border-color: blueviolet; -fx-border-width: 3;" />
+    </VBox>
+
+    <!-- Spacer -->
+    <AnchorPane />
 
     <!-- Feedback Section -->
     <Label fx:id="lblFeedback" style="-fx-text-fill: blue; -fx-font-size: 14px;" text="" />
 
     <!-- Buttons -->
-    <HBox alignment="CENTER" spacing="10">
-    <Button fx:id="btnSubmit" onMouseClicked="#onSubmitClicked" text="Submit" />
-    <Button fx:id="btnReset" onMouseClicked="#onResetClicked" text="Reset" />
-    <Button fx:id="btnBack" mnemonicParsing="false" onMouseClicked="#back" text="Back" />
+    <HBox alignment="CENTER" spacing="10.0">
+        <Button fx:id="btnSubmit" onMouseClicked="#onSubmitClicked" text="Submit" />
+        <Button fx:id="btnReset" onMouseClicked="#onResetClicked" text="Reset" />
+        <Button fx:id="btnBack" mnemonicParsing="false" onMouseClicked="#back" text="Back" />
     </HBox>
 </VBox>

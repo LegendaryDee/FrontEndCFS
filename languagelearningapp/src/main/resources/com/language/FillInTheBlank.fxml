@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FillInTheBlankController" spacing="20" alignment="CENTER" prefWidth="400" prefHeight="400">
+    <Label fx:id="questionLabel" text="Question goes here" wrapText="true" style="-fx-font-size: 18px;"/>
+    <TextField fx:id="answerField" promptText="Type your answer here" style="-fx-font-size: 16px;" />
+    <Button fx:id="submitButton" text="Submit" onAction="#handleSubmit" />
+    <Label fx:id="scoreLabel" text="Your score: 0 / 5" style="-fx-font-size: 16px;" />
+    <Button fx:id="backButton" text="Back to Main" onAction="#handleBackButton" style="-fx-font-size: 14px;" />
+</VBox>
