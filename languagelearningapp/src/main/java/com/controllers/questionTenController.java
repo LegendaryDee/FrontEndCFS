@@ -27,36 +27,19 @@ public class questionTenController {
 
     public void initialize() {
         // Set the correct answer for this question
-        correctAnswer = "Diez"; // Adjust this for each FXML
+        correctAnswer = "Tres"; // Adjust this for each FXML
     }
 
     @FXML
-    private void handleButtonAction(javafx.event.ActionEvent event) {
+    private void handleButtonAction(javafx.event.ActionEvent event) throws IOException {
         Button clickedButton = (Button) event.getSource();
 
         // Check if the clicked button is correct
         if (clickedButton.getText().equals(correctAnswer)) {
-            loadNextQuestion(); // Load the next question
+            com.language.App.setRoot("numberQuizResult");
         } else {
             // Turn the button red if incorrect
             clickedButton.setStyle("-fx-background-color: red;");
-        }
-    }
-
-    private void loadNextQuestion() {
-        try {
-            // Load the next FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("numberTwo.fxml")); // Adjust for each file
-            AnchorPane nextPane = loader.load();
-
-            // Get the current stage
-            Stage stage = (Stage) rootPane.getScene().getWindow();
-            Scene scene = new Scene(nextPane);
-
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
