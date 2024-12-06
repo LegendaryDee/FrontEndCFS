@@ -12,6 +12,9 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,14 +47,17 @@ public class MainController {
         List<Lesson> lessons = new ArrayList<>();
         lessons.add(new Lesson(UUID.randomUUID(), "Lesson 1", "Intro to Spanish"));
         lessons.add(new Lesson(UUID.randomUUID(), "Lesson 2", "Basic Vocabulary"));
+        lessons.add(new Lesson(UUID.randomUUID(), "Lesson 3", "Numbers Quiz"));
 
         // Example courses data
         Course course1 = new Course(UUID.randomUUID(), language, "Spanish for Beginners", lessons, "Introduction to basic Spanish phrases.", Proficiency.BEGINNER);
         Course course2 = new Course(UUID.randomUUID(), language, "Intermediate Spanish", lessons, "Learn more advanced Spanish grammar.", Proficiency.NOVICE);
+        Course course3 = new Course(UUID.randomUUID(), language, "Basic Numbers in Spanish", lessons, "Learn the numbers 1-10 in Spanish", Proficiency.BEGINNER);
 
         // Add these courses to the TableView
         modulesTable.getItems().add(course1);
         modulesTable.getItems().add(course2);
+        modulesTable.getItems().add(course3);
 
         // Adding a row click event handler
         modulesTable.setRowFactory(tv -> {
@@ -72,8 +78,15 @@ public class MainController {
         alert.setHeaderText("Starting Lesson for: " + course.getTitle());
         alert.setContentText("You are about to start the lesson: " + course.getDescription());
         alert.showAndWait();
-        
-        // You would add code here to navigate to the lesson screen
+
+        // If the course is "Basic Numbers in Spanish", load the numbers quiz screen
+        if (course.getTitle().equals("Basic Numbers in Spanish")) {
+            try {
+                com.language.App.setRoot("numberOne");  // Load the numberOne.fxml screen
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML

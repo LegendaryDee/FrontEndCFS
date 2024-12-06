@@ -27,7 +27,7 @@ public class questionTenController {
 
     public void initialize() {
         // Set the correct answer for this question
-        correctAnswer = "Tres"; // Adjust this for each FXML
+        correctAnswer = "Diez"; // Adjust this for each FXML
     }
 
     @FXML

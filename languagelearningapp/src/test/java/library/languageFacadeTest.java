@@ -88,8 +88,8 @@ public class languageFacadeTest {
     @Test
     public Course getCourseDetails(String courseID) {
         System.out.println("Retrieving details for course ID: " + courseID);
-        Lesson lessonOne = new Lesson(UUID.randomUUID(), "CourseID1");
-        Lesson lessonTwo = new Lesson(UUID.randomUUID(), "CourseID1");
+        Lesson lessonOne = new Lesson(UUID.randomUUID(), "CourseID1", courseID);
+        Lesson lessonTwo = new Lesson(UUID.randomUUID(), "CourseID1", courseID);
         List<Lesson> lessons = new ArrayList<>();
         lessons.add(lessonOne);
         lessons.add(lessonTwo);
