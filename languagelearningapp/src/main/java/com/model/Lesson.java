@@ -12,6 +12,7 @@ public class Lesson {
     private UUID lessonID;
     private List<Topic> topics;
 
+    // Constructor with UUID, title, content, and duration
     public Lesson(UUID lessonID, String title, String content, int duration) {
         this.title = title;
         this.content = content;
@@ -20,16 +21,24 @@ public class Lesson {
         this.duration = duration;
     }
 
+    // Constructor with UUID, title, and content (no duration)
+    public Lesson(UUID id, String title, String content) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.lessonID = UUID.randomUUID(); // You can adjust this as necessary.
+        this.duration = 0;  // Default duration to 0, since it's not provided.
+    }
+
+    // Constructor with only title and content
     public Lesson(String title, String content) {
         this.title = title;
         this.content = content;
+        this.id = UUID.randomUUID();  // Generate new ID by default.
+        this.lessonID = UUID.randomUUID(); // Generate new lesson ID.
+        this.duration = 0; // Default duration to 0, since it's not provided.
     }
     
-    public Lesson(UUID uuId, String content) {
-        this.id = uuId;
-        this.content = content;
-    }
-
     public void startLesson() {
         System.out.println("Starting lesson: " + title);
     }
@@ -50,15 +59,14 @@ public class Lesson {
         return topics;
     }
     
-    
     public void setTopics(List<Topic> topics) {
-	    if(this.topics == null) {
-	    	this.topics = new ArrayList<Topic>();
-	    }
-    	this.topics = topics;
-	}
+        if(this.topics == null) {
+            this.topics = new ArrayList<>();
+        }
+        this.topics = topics;
+    }
 
-	public UUID getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -70,8 +78,13 @@ public class Lesson {
         return lessonID.toString();
     }
 
+    @Override
     public String toString() {
         return "Lesson{" +
-         "id=" + id + ", title='" + title + '\'' + ", content='" + content + '\'' + ", duration=" + duration + '}';
+                "id=" + id + 
+                ", title='" + title + '\'' + 
+                ", content='" + content + '\'' + 
+                ", duration=" + duration + 
+                '}';
     }
 }

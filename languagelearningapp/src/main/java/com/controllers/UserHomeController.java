@@ -29,7 +29,7 @@ public class UserHomeController implements Initializable {
         lbl_title.setText("Welcome " + user.getUserName());
     } else {
         System.out.println("No user found. Showing guest view."); // Debugging
-        lbl_title.setText("Welcome, guest!");
+        lbl_title.setText("Welcome, Guest!");
     }
 }
     @FXML

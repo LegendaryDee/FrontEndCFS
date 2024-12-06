@@ -1,113 +1,83 @@
-/**
- * @author Demetrius Mack 
- */
 package com.controllers;
 
+import com.model.Course;
+import com.model.Language;
+import com.model.Lesson;
+import com.model.Proficiency;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.UUID;
 
-import com.model.Course;
-import com.model.Topic;
-
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-
-public class MainController implements Initializable {
+public class MainController {
 
     @FXML
-    private VBox moduleContainer; // VBox for dynamically adding module rows
+    private TableView<Course> modulesTable;
 
-    private List<Course> courses; // List of Course objects
+    @FXML
+    private TableColumn<Course, String> moduleColumn;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Initialize courses with dummy data (replace with actual data retrieval if necessary)
-        courses = new ArrayList<>();
-        
-        // Example data setup
-        Course spanishBasics = new Course(
-            UUID.randomUUID(), 
-            "Spanish Basics", 
-            "Learn essential Spanish vocabulary and phrases."
-        );
-        spanishBasics.addTopic(new Topic("Greetings", "Learn how to greet in Spanish."));
-        spanishBasics.addTopic(new Topic("Numbers", "Learn to count in Spanish."));
-        
-        Course grammarEssentials = new Course(
-            UUID.randomUUID(),
-            "Grammar Essentials",
-            "Master Spanish grammar fundamentals."
-        );
-        grammarEssentials.addTopic(new Topic("Verb Conjugation", "Learn how to conjugate common verbs."));
-        
-        Course everydayPhrases = new Course(
-            UUID.randomUUID(),
-            "Everyday Phrases",
-            "Learn phrases for common situations."
-        );
-        everydayPhrases.addTopic(new Topic("Ordering Food", "Learn phrases for ordering food."));
-        everydayPhrases.addTopic(new Topic("Asking for Directions", "Learn phrases for navigating."));
-        
-        courses.add(spanishBasics);
-        courses.add(grammarEssentials);
-        courses.add(everydayPhrases);
+    @FXML
+    private TableColumn<Course, String> descriptionColumn;
 
-        // Populate the module rows in the UI
-        loadModuleRows();
+    @FXML
+    private TableColumn<Course, String> actionColumn;
+
+    public void initialize() {
+        moduleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+        actionColumn.setCellValueFactory(new PropertyValueFactory<>("action"));
+
+        // Using a valid Language enum constant
+        Language language = Language.SPANISH; // Set the language to Spanish as an example
+
+        // Creating lessons with UUID, title, and description
+        List<Lesson> lessons = new ArrayList<>();
+        lessons.add(new Lesson(UUID.randomUUID(), "Lesson 1", "Intro to Spanish"));
+        lessons.add(new Lesson(UUID.randomUUID(), "Lesson 2", "Basic Vocabulary"));
+
+        // Example courses data
+        Course course1 = new Course(UUID.randomUUID(), language, "Spanish for Beginners", lessons, "Introduction to basic Spanish phrases.", Proficiency.BEGINNER);
+        Course course2 = new Course(UUID.randomUUID(), language, "Intermediate Spanish", lessons, "Learn more advanced Spanish grammar.", Proficiency.NOVICE);
+
+        // Add these courses to the TableView
+        modulesTable.getItems().add(course1);
+        modulesTable.getItems().add(course2);
+
+        // Adding a row click event handler
+        modulesTable.setRowFactory(tv -> {
+            TableRow<Course> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty()) {
+                    Course course = row.getItem();
+                    startLesson(course);
+                }
+            });
+            return row;
+        });
     }
 
-    /**
-     * Dynamically loads module rows into the VBox container.
-     */
-    private void loadModuleRows() {
-        for (Course course : courses) {
-            // Create an HBox for each module row
-            HBox moduleRow = new HBox();
-            moduleRow.setSpacing(20); // Spacing between elements
-            moduleRow.setStyle("-fx-padding: 10; -fx-border-color: #ddd; -fx-border-width: 1;");
-
-            // Label for the course title
-            Label moduleLabel = new Label(course.getTitle());
-            moduleLabel.setStyle("-fx-font-size: 16px; -fx-padding: 5;");
-
-            // Start button
-            Button startButton = new Button("Start");
-            startButton.setStyle("-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px;");
-            startButton.setOnMouseClicked(event -> startModule(course));
-
-            // Add the label and button to the row
-            moduleRow.getChildren().addAll(moduleLabel, startButton);
-
-            // Add the row to the VBox container
-            moduleContainer.getChildren().add(moduleRow);
-        }
+    private void startLesson(Course course) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Start Lesson");
+        alert.setHeaderText("Starting Lesson for: " + course.getTitle());
+        alert.setContentText("You are about to start the lesson: " + course.getDescription());
+        alert.showAndWait();
+        
+        // You would add code here to navigate to the lesson screen
     }
 
-    /**
-     * Event handler for the "Start" button.
-     * Starts the first lesson of the selected course.
-     *
-     * @param course the selected Course object
-     */
-    private void startModule(Course course) {
-        try {
-            if (course.getTopics().isEmpty()) {
-                System.out.println("No lessons available for this course.");
-                return;
-            }
-            System.out.println("Starting course: " + course.getTitle());
-            course.startLesson(); // Start the first lesson
-            com.language.App.setRoot("lesson_screen"); // Navigate to the lesson screen
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @FXML
+    private void exitApplication(MouseEvent event) throws IOException {
+        com.language.App.setRoot("courses");
     }
 }

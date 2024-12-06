@@ -197,7 +197,7 @@ public class DataLoader extends DataConstants {
                          JSONObject lessonJson = (JSONObject) lessonObj;
                          UUID lessonID = UUID.fromString(String.valueOf(lessonJson.get("id")));
                          String lessonTitle = (String) lessonJson.get("title");
-                         Lesson lesson = new Lesson(lessonID, lessonTitle );
+                         Lesson lesson = new Lesson(lessonID, lessonTitle, lessonTitle );
                          
                          //Topics
                          List <Topic> topics  = new ArrayList<>();

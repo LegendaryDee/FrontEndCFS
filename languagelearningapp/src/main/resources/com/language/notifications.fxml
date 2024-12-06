@@ -6,10 +6,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane prefHeight="417.0" prefWidth="597.0" stylesheets="@styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.controllers.NotificationsController">
+<BorderPane prefHeight="417.0" prefWidth="597.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.NotificationsController">
     <!-- Top Section: Title -->
     <top>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="600.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 10; -fx-background-color: blueviolet;" text="Notifications" />
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="1400.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 10; -fx-background-color: blueviolet;" text="Notifications" />
     </top>
 
     <!-- Center Section: Notifications List -->

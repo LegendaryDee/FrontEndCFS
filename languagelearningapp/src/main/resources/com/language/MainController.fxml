@@ -15,5 +15,5 @@
         </columns>
     </TableView>
 
-    <Button text="Exit" onAction="#exitApplication"/>
+    <Button text="Back" mnemonicParsing="false" onMouseClicked="#exitApplication"/>
 </VBox>
