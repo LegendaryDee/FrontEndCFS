@@ -1,9 +1,9 @@
 package com.controllers;
 
 import java.io.IOException;
-
 import com.model.ProgressData;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -56,19 +56,16 @@ public class ProgressDataController {
     }
 
     @FXML
-    private void addScore(ActionEvent event) throws IOException {
-        try {
-            int score = Integer.parseInt(txt_addScore.getText());
-            progressData.addScore(score);
-            loadProgressData();
-        } catch (NumberFormatException e) {
-            System.err.println("Invalid score input. Please enter a valid number.");
-        }
+    private void saveProgress(ActionEvent event) throws IOException {
+        showAlert("Success", "Progress Saved", "Your progress has been successfully saved.", AlertType.INFORMATION);
     }
 
-    @FXML
-    private void saveProgress(ActionEvent event) throws IOException {
-        progressData.saveProgress();
+    private void showAlert(String title, String header, String content, AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     @FXML

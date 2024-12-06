@@ -34,10 +34,6 @@
     <!-- Bottom Section: Actions -->
     <bottom>
         <VBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
-            <HBox spacing="10" alignment="CENTER">
-                <TextField fx:id="txt_addScore" promptText="Add Score" />
-                <Button text="Add Score" onAction="#addScore" />
-            </HBox>
             <Button text="Save Progress" onAction="#saveProgress" style="-fx-padding: 5 20;" />
             <Button text="Back" mnemonicParsing="false" onMouseClicked="#back"/>
         </VBox>

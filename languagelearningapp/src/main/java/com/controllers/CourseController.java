@@ -48,11 +48,17 @@ public class CourseController {
     @FXML
     public void onRemoveCourseClicked() {
         String selectedTitle = courseListView.getSelectionModel().getSelectedItem();
+
+        if (selectedTitle == null) {
+            showError("No Selection", "Please select a course to remove.");
+            return;
+        }
+
         Course selectedCourse = findCourseByTitle(selectedTitle);
         if (selectedCourse != null) {
             CourseList.getInstance().removeCourse(selectedCourse.getId());
             showSuccess("Success", "Course removed successfully.");
-            refreshCourseList(); // Manually refresh the list
+            refreshCourseList();
         } else {
             showError("Error", "Selected course not found.");
         }
@@ -66,13 +72,13 @@ public class CourseController {
                 .orElse(null);
     }
 
-    private void transitionToCourse(Course course) {
+    private void transitionToCourse(Course course) throws IOException {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Course Transition");
         alert.setHeaderText("Transitioning to Course");
         alert.setContentText("Course: " + course.getTitle() + "\nDescription: " + course.getDescription());
         alert.showAndWait();
-        // Add your scene-switching logic here
+        com.language.App.setRoot("MainController");
     }
 
     @FXML
