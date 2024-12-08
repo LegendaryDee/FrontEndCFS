@@ -65,6 +65,6 @@
 
     <!-- Navigation Buttons -->
     <HBox alignment="CENTER" spacing="10">
-        <Button text="Back" onAction="#back" />
+        <Button text="Back" mnemonicParsing="false" onMouseClicked="#back" />
     </HBox>
 </VBox>
