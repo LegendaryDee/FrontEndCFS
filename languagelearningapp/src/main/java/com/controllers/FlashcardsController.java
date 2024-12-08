@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,4 +98,17 @@ public class FlashcardsController {
             System.out.println("You're already at the first flashcard.");
         }
     }
+        /**
+     * Event handler for the "Back to Practice Options" button.
+     * Transitions to the Practice Options screen.
+     */
+    @FXML
+    private void onBackToPracticeOptionsClick() {
+        try {
+            com.language.App.setRoot("practice_options"); // Ensure "practiceOptions.fxml" exists in your project
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

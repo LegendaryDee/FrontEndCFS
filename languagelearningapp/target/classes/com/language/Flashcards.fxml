@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox style="-fx-background-color: mediumpurple;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FlashcardsController" alignment="CENTER" spacing="20" prefWidth="400" prefHeight="300">
+    <!-- Flashcard Word -->
+    <Label fx:id="wordLabel" text="Word" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    
+    <!-- Flashcard Translation -->
+    <Label fx:id="translationLabel" text="Translation" style="-fx-font-size: 18px;" />
+    
+    <!-- Flashcard Example Phrase -->
+    <Label fx:id="phraseLabel" text="Example Phrase" style="-fx-font-size: 16px; -fx-font-style: italic;" wrapText="true" />
+    
+    <!-- Navigation Buttons -->
+    <HBox spacing="20" alignment="CENTER">
+        <Button fx:id="prevButton" text="Previous" onAction="#onPrevButtonClick" />
+        <Button fx:id="nextButton" text="Next" onAction="#onNextButtonClick" />
+    </HBox>
+    
+    <!-- Back to Practice Options Button -->
+    <Button text="Back to Practice Options" onAction="#onBackToPracticeOptionsClick" style="-fx-font-size: 14px;" />
+</VBox>

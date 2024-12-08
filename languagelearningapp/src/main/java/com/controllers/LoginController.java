@@ -23,17 +23,27 @@ public class LoginController implements Initializable {
 
     @FXML
     private void onLogin(ActionEvent event) throws IOException {
-        String username = txt_username.getText();
-        String password = txt_password.getText();
-
-        Library library = Library.getInstance();
-        User user = library.authenticateUser(username, password);
-
-        if (user != null) {
-            // library.setCurrentUser(user);
-            com.language.App.setRoot("user_home");
-        } else {
-            lbl_error.setText("Invalid username or password.");
+        try {
+            String username = txt_username.getText();
+            String password = txt_password.getText();
+    
+            System.out.println("Logging in with username: " + username);
+    
+            Library library = Library.getInstance();
+            User user = library.authenticateUser(username, password);
+    
+            if (user != null) {
+                System.out.println("Authentication successful. Redirecting to user_home...");
+                library.setCurrentUser(user);
+                com.language.App.setRoot("user_home");
+            } else {
+                System.out.println("Invalid credentials.");
+                lbl_error.setText("Invalid username or password.");
+                lbl_error.setVisible(true);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            lbl_error.setText("Error occurred during login.");
             lbl_error.setVisible(true);
         }
     }

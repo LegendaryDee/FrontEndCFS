@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import com.model.Library;
 import com.model.User;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -30,7 +31,7 @@ public class SignupController implements Initializable {
     private Label lbl_error;
 
     @FXML
-    private void btnSignupClicked(MouseEvent event) throws IOException {
+    private void btnSignupClicked(ActionEvent event) throws IOException {
         String username = txt_username.getText();
         String password = txt_password.getText();
         String firstName = txt_first_name.getText();
@@ -65,7 +66,7 @@ public class SignupController implements Initializable {
         }
 
         // check for empty fields
-        if (username.equals("") || password.equals("") || firstName.equals("") || lastName.equals("")) {
+        if (username.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty()) {
             lbl_error.setText("Sorry, You cannot leave blank fields");
             return;
         }
@@ -78,8 +79,8 @@ public class SignupController implements Initializable {
         }
 
         com.language.App.setRoot("login");
-        library.login(username);
-        com.language.App.setRoot("user_home");
+        // library.login(username);
+        // com.language.App.setRoot("user_home");
     }
 
     @FXML

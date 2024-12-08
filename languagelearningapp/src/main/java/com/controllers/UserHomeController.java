@@ -22,7 +22,7 @@ public class UserHomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        library = Library.getInstance();
+    library = Library.getInstance();
     user = library.getCurrentUser();
     
     if (user != null) {

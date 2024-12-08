@@ -36,7 +36,7 @@
       <Label fx:id="lbl_error" layoutX="323.0" layoutY="459.0" style="-fx-font-size: 14px; -fx-text-fill: red;" text="" />
 
       <!-- Buttons -->
-      <Button layoutX="323.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#btnSignupClicked" prefHeight="24.0" prefWidth="174.0" text="Submit" />
+      <Button layoutX="323.0" layoutY="388.0" onAction="#btnSignupClicked" prefHeight="24.0" prefWidth="174.0" text="Submit" />
       <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="15.0" prefWidth="75.0" text="Back">
          <font>
             <Font size="10.0" />

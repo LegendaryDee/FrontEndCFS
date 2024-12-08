@@ -56,7 +56,9 @@ public class Library {
 
     public User authenticateUser(String username, String password) {
         for(User user : users) {
-        if(user.getUserName().equals(username) && user.getPassword().equals(password)) {
+            if (user.getUserName() != null && user.getUserName().equals(username) &&
+            user.getPassword() != null && user.getPassword().equals(password)) {
+            System.out.println("Authentication successful for: " + username);
             return user;
         }
     }

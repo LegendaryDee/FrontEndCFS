@@ -10,8 +10,8 @@
     <Label style="-fx-font-size: 20px;" text="Course Management" />
     <ListView fx:id="courseListView" prefHeight="200" prefWidth="400" />
     <HBox alignment="CENTER" spacing="10">
-            <Button fx:id="goToScreenButton" text="Start Course" onAction="#transitionToCourse"/>
             <Button fx:id="removeCourseButton" text="Remove Course" onAction="#dismissSelectedCourse"/>
+            <Button fx:id="goToScreenButton" text="Go to Screen" onAction="#transitionToCourse"/>
             <Button text="Back" onAction="#back"/>
     </HBox>
 </VBox>
