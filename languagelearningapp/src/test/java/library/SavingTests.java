@@ -10,8 +10,10 @@ import com.model.CourseList;
 import com.model.DataWriter;
 import com.model.LanguagePreference;
 import com.model.ProgressData;
-import com.model.User;
 import com.model.UserList;
+import com.model.Teacher;
+import com.model.User;
+
 
 import java.io.FileReader;
 import java.util.List;

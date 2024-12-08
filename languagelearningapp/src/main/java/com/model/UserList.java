@@ -7,58 +7,64 @@ public class UserList {
     private static UserList instance;
     private List<User> users;
 
-    // Private constructor for Singleton pattern
-    @SuppressWarnings("static-access")
-    public
-    UserList() {
-        // Load users using DataLoader
-        DataLoader dataLoader = new DataLoader();
-        this.users = dataLoader.getUsers();
-        
-        // If no users are loaded, initialize with an empty list
-        if (this.users == null) {
-            this.users = new ArrayList<>();
-        }
+    // Private constructor to enforce singleton pattern
+    private UserList() {
+        users = new ArrayList<>();
     }
 
-    // Synchronized to ensure thread-safety in multithreaded environments
-    public static synchronized UserList getInstance() {
+    // Singleton instance retrieval
+    public static UserList getInstance() {
         if (instance == null) {
             instance = new UserList();
         }
         return instance;
     }
 
-    public List<User> getUsers() {
-        return this.users;
-    }
-
-    // Method to get a user by username
-    public User getUser(String username) {
-        for (User user : users) {
-            if (user.getUserName().equalsIgnoreCase(username)) {
-                return user;
-            }
-        }
-        return null;  // If no user is found, return null
-    }
-
-    @SuppressWarnings("static-access")
+    // Add a new user
     public void addUser(User user) {
+        if (user == null) {
+            throw new IllegalArgumentException("User cannot be null.");
+        }
         users.add(user);
-        // Save updated user list to the data source
-        DataWriter dataWriter = new DataWriter();
-        dataWriter.saveUsers(users);
     }
 
-    public void setUsers(List<User> users) {
-        if (users != null) {
-            this.users = users;
-            // Save updated user list to the data source
-            DataWriter dataWriter = new DataWriter();
-            dataWriter.saveUsers(users);
-        } else {
-            throw new IllegalArgumentException("User list cannot be null.");
+    // Retrieve a user by username
+    public User getUser(String username) {
+        if (username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty.");
         }
+        return users.stream()
+                    .filter(user -> user.getUserName().equals(username))
+                    .findFirst()
+                    .orElse(null);
+    }
+
+    // Retrieve all users
+    public List<User> getUsers() {
+        return new ArrayList<>(users); // Return a copy to preserve encapsulation
+    }
+
+    // Remove a user by username
+    public boolean removeUser(String username) {
+        if (username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty.");
+        }
+        return users.removeIf(user -> user.getUserName().equals(username));
+    }
+
+    // Check if a user exists by username
+    public boolean containsUser(String username) {
+        if (username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty.");
+        }
+        return users.stream().anyMatch(user -> user.getUserName().equals(username));
+    }
+
+    // Set the list of users (useful for resetting or initializing with a specific list)
+    public void setUsers(List<User> newUsers) {
+        if (newUsers == null) {
+            throw new IllegalArgumentException("New users list cannot be null.");
+        }
+        this.users = new ArrayList<>(newUsers); // Create a copy to prevent external modification
     }
 }

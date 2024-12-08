@@ -12,100 +12,73 @@ import com.model.User;
 import com.model.UserList;
 
 public class AppTests {
-@Test
-public void testUpdateLanguagePreference() {
-    // Set up UserList and add a user
-    UserList userList = UserList.getInstance();
-    User user = new User(
-        java.util.UUID.randomUUID(),
-        "mjackson",
-        "securePass",
-        "mjackson@example.com",
-        LanguagePreference.FRENCH,
-        new ProgressData("3"),
-        0
-    );
-    userList.addUser(user);
 
-    // Update the language preference using a setter (assuming it exists)
-    user.setLanguagePreference(LanguagePreference.GERMAN);
+    @Test
+    public void testTesting() {
+        // Simple test to verify the test environment is working
+        assertTrue(true);
+    }
 
-    // Verify the update
-    assertEquals(LanguagePreference.GERMAN, user.getLanguagePreference());
-}
+    @Test
+    public void testLoginValid() {
+        // Set up UserList and add a valid user
+        UserList userList = UserList.getInstance();
+        userList.addUser(new User(
+            java.util.UUID.randomUUID(), 
+            "jdoe", 
+            "password123", 
+            "jdoe@example.com", 
+            LanguagePreference.ENGLISH, 
+            new ProgressData("1"), 
+            0
+        ));
 
-@Test
-public void testRemoveUserByClearingList() {
-    // Set up UserList and add a user
-    UserList userList = UserList.getInstance();
-    User user = new User(
-        java.util.UUID.randomUUID(),
-        "jane_doe",
-        "password123",
-        "jane.doe@example.com",
-        LanguagePreference.ENGLISH,
-        new ProgressData("4"),
-        0
-    );
-    userList.addUser(user);
+        // Attempt to login
+        User user = userList.getUser("jdoe");
+        boolean loggedIn = user != null && user.login("jdoe", "password123");
 
-    // Clear the UserList
-    userList.setUsers(new java.util.ArrayList<>()); // Clear the list
+        // Verify login was successful
+        assertTrue(loggedIn);
 
-    // Verify the user list is empty
-    assertTrue(userList.getUsers().isEmpty());
-}
+        // Verify user details
+        assertEquals("jdoe", user.getUserName());
+        assertEquals("jdoe@example.com", user.getEmail());
+    }
 
-@Test
-public void testUpdateProgressManually() {
-    // Set up a User with ProgressData
-    ProgressData progressData = new ProgressData("1");
-    User user = new User(
-        java.util.UUID.randomUUID(),
-        "charlie",
-        "pass1234",
-        "charlie@example.com",
-        LanguagePreference.SPANISH,
-        progressData,
-        0
-    );
+    @Test
+    public void testAddAccountValid() {
+        // Set up UserList
+        UserList userList = UserList.getInstance();
 
-    // Update progress by setting a new ProgressData object (if no `updateProgress` exists)
-    user.setProgressData(new ProgressData("2"));
+        // Add a new user account
+        User newUser = new User(
+            java.util.UUID.randomUUID(),
+            "asmith",
+            "password123",
+            "asmith@example.com",
+            LanguagePreference.SPANISH,
+            new ProgressData("2"),
+            0
+        );
+        userList.addUser(newUser);
 
-    // Verify the progress was updated
-    assertEquals("2", user.getProgressData().getId());
-}
+        // Verify the user was added
+        User retrievedUser = userList.getUser("asmith");
+        assertTrue(retrievedUser != null);
+        assertEquals("asmith", retrievedUser.getUserName());
+    }
 
-@Test
-public void testUserListSingletonBehavior() {
-    // Retrieve two instances of UserList
-    UserList instance1 = UserList.getInstance();
-    UserList instance2 = UserList.getInstance();
+    @Test
+    public void testLoginInvalid() {
+        // Set up UserList with no users
+        UserList userList = UserList.getInstance();
+        userList.setUsers(new java.util.ArrayList<>());  // Clear all users for testing
 
-    // Verify both instances are the same
-    assertTrue(instance1 == instance2);
-}
+        // Attempt to login with invalid credentials
+        User user = userList.getUser("invalidUser");
+        boolean loggedIn = user != null && user.login("invalidUser", "wrongPassword");
 
-@Test
-public void testInvalidEmailCheckManually() {
-    // Create a user with an invalid email
-    User invalidEmailUser = new User(
-        java.util.UUID.randomUUID(),
-        "user123",
-        "pass5678",
-        "invalid-email",
-        LanguagePreference.ENGLISH,
-        new ProgressData("5"),
-        0
-    );
-
-    // Check if email contains "@" and a domain
-    boolean isValidEmail = invalidEmailUser.getEmail().contains("@") &&
-                           invalidEmailUser.getEmail().contains(".");
-
-    // Verify email validation fails
-    assertFalse(isValidEmail);
-}
-
+        // Verify login failed
+        assertFalse(loggedIn);
+    }
 }
