@@ -7,18 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
-
-import com.model.Course;
-import com.model.CourseList;
-import com.model.Language;
-import com.model.Proficiency;
 
 public class CourseController {
     @FXML
@@ -33,7 +22,6 @@ public class CourseController {
     @FXML
     private Button goToScreenButton; // New button for transitioning
 
-    private CourseList courseList;
 
     @FXML
     public void initialize() {

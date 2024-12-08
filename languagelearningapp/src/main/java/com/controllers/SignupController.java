@@ -81,7 +81,6 @@ public class SignupController implements Initializable {
         library.addUser(new User(null, username, password, phoneNumber, null, null, age));
         library.login(username);
         com.language.App.setRoot("login");
-        // com.language.App.setRoot("user_home");
     }
 
     @FXML
