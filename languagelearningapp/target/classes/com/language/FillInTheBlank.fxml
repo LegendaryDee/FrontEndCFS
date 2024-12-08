@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FillInTheBlankController" spacing="20" alignment="CENTER" prefWidth="400" prefHeight="400">
-    <Label fx:id="questionLabel" text="Question goes here" wrapText="true" style="-fx-font-size: 18px;"/>
+<VBox alignment="CENTER" prefHeight="400" prefWidth="400" spacing="20" style="-fx-background-color: mediumpurple;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.controllers.FillInTheBlankController">
+    <Label fx:id="questionLabel" style="-fx-font-size: 18px;" text="Question goes here" wrapText="true" />
     <TextField fx:id="answerField" promptText="Type your answer here" style="-fx-font-size: 16px;" />
-    <Button fx:id="submitButton" text="Submit" onAction="#handleSubmit" />
-    <Label fx:id="scoreLabel" text="Your score: 0 / 5" style="-fx-font-size: 16px;" />
-    <Button fx:id="backButton" text="Back to Main" onAction="#handleBackButton" style="-fx-font-size: 14px;" />
+    <Button fx:id="submitButton" onAction="#handleSubmit" text="Submit" />
+    <Label fx:id="scoreLabel" style="-fx-font-size: 16px;" text="Your score: 0 / 5" />
+    <Button fx:id="backButton" onAction="#handleBackButton" style="-fx-font-size: 14px;" text="Back to Main" />
 </VBox>
