@@ -7,64 +7,58 @@ public class UserList {
     private static UserList instance;
     private List<User> users;
 
-    // Private constructor to enforce singleton pattern
-    private UserList() {
-        users = new ArrayList<>();
+    // Private constructor for Singleton pattern
+    @SuppressWarnings("static-access")
+    public
+    UserList() {
+        // Load users using DataLoader
+        DataLoader dataLoader = new DataLoader();
+        this.users = dataLoader.getUsers();
+        
+        // If no users are loaded, initialize with an empty list
+        if (this.users == null) {
+            this.users = new ArrayList<>();
+        }
     }
 
-    // Singleton instance retrieval
-    public static UserList getInstance() {
+    // Synchronized to ensure thread-safety in multithreaded environments
+    public static synchronized UserList getInstance() {
         if (instance == null) {
             instance = new UserList();
         }
         return instance;
     }
 
-    // Add a new user
-    public void addUser(User user) {
-        if (user == null) {
-            throw new IllegalArgumentException("User cannot be null.");
-        }
-        users.add(user);
-    }
-
-    // Retrieve a user by username
-    public User getUser(String username) {
-        if (username == null || username.isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be null or empty.");
-        }
-        return users.stream()
-                    .filter(user -> user.getUserName().equals(username))
-                    .findFirst()
-                    .orElse(null);
-    }
-
-    // Retrieve all users
     public List<User> getUsers() {
-        return new ArrayList<>(users); // Return a copy to preserve encapsulation
+        return this.users;
     }
 
-    // Remove a user by username
-    public boolean removeUser(String username) {
-        if (username == null || username.isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be null or empty.");
+    // Method to get a user by username
+    public User getUser(String username) {
+        for (User user : users) {
+            if (user.getUserName().equalsIgnoreCase(username)) {
+                return user;
+            }
         }
-        return users.removeIf(user -> user.getUserName().equals(username));
+        return null;  // If no user is found, return null
     }
 
-    // Check if a user exists by username
-    public boolean containsUser(String username) {
-        if (username == null || username.isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be null or empty.");
-        }
-        return users.stream().anyMatch(user -> user.getUserName().equals(username));
+    @SuppressWarnings("static-access")
+    public void addUser(User user) {
+        users.add(user);
+        // Save updated user list to the data source
+        DataWriter dataWriter = new DataWriter();
+        dataWriter.saveUsers(users);
     }
 
-    // Set the list of users (useful for resetting or initializing with a specific list)
-    public void setUsers(List<User> newUsers) {
-        if (newUsers == null) {
-            throw new IllegalArgumentException("New users list cannot be null.");
+    public void setUsers(List<User> users) {
+        if (users != null) {
+            this.users = users;
+            // Save updated user list to the data source
+            DataWriter dataWriter = new DataWriter();
+            dataWriter.saveUsers(users);
+        } else {
+            throw new IllegalArgumentException("User list cannot be null.");
         }
-        this.users = new ArrayList<>(newUsers); // Create a copy to prevent external modification
     }
 }

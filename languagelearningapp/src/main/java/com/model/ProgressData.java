@@ -7,12 +7,10 @@ import java.util.List;
 
 
 public class ProgressData {
-
     public int lessonsCompleted;
     public int attempts;
     public int totalScore;
     private ArrayList<Integer> individualScores;
-    private String progressId;
     private String userID;
     private UUID userId;
     private int currentModule;
@@ -49,7 +47,6 @@ public class ProgressData {
         this.strugglingWords = new ArrayList<>();
         this.strugglingPhrases = new ArrayList<>();
     }
-    
     
 
     public ProgressData getCurrentProgress(String userID) {

@@ -14,6 +14,7 @@ public class ProgressDataTest {
 
     @BeforeEach
     public void setUp() {
+        // Initialize with a sample user ID for testing
         progressData = new ProgressData("testUserID");
     }
 
@@ -27,6 +28,7 @@ public class ProgressDataTest {
 
     @Test
     public void testUpdateProgress() {
+        // Update progress with sample values
         progressData.updateProgress(5, 10, 200);
         assertEquals(5, progressData.getLessonsCompleted(), "LessonsCompleted should update correctly");
         assertEquals(10, progressData.getAttempts(), "Attempts should update correctly");
@@ -35,6 +37,7 @@ public class ProgressDataTest {
 
     @Test
     public void testAddScore() {
+        // Test adding individual scores
         progressData.addScore(80);
         assertEquals(80, progressData.getTotalScore(), "TotalScore should update with added score");
         assertEquals(1, progressData.getLessonsCompleted(), "LessonsCompleted should increment with each score added");
@@ -46,6 +49,7 @@ public class ProgressDataTest {
 
     @Test
     public void testGetAverageScore() {
+        // Add some scores and check average score
         progressData.addScore(50);
         progressData.addScore(100);
         assertEquals(75, progressData.getAverageScore(), "Average score should be calculated correctly");
@@ -56,6 +60,7 @@ public class ProgressDataTest {
 
     @Test
     public void testCurrentCourseID() {
+        // Set and verify current course ID
         String courseID = "course123";
         progressData.setCurrentCourseID(courseID);
         assertEquals(courseID, progressData.getCurrentCourseID(), "CurrentCourseID should set and return correctly");
@@ -63,12 +68,14 @@ public class ProgressDataTest {
 
     @Test
     public void testCourseCompletionPercentage() {
+        // Set and verify course completion percentage
         progressData.setCourseCompletionPercentage(85);
         assertEquals(85, progressData.getCourseCompletionPercentage(), "CourseCompletionPercentage should be set and retrieved correctly");
     }
 
     @Test
     public void testStrugglingWordsAndPhrases() {
+        // Add struggling words and phrases and verify they are added
         ArrayList<String> strugglingWords = new ArrayList<>();
         strugglingWords.add("word1");
         strugglingWords.add("word2");
@@ -87,12 +94,14 @@ public class ProgressDataTest {
 
     @Test
     public void testCurrentModule() {
+        // Set and verify current module
         progressData.setCurrentModule(3);
         assertEquals(3, progressData.getCurrentModule(), "CurrentModule should be set and retrieved correctly");
     }
 
     @Test
     public void testCurrentLessonID() {
+        // Generate a random lesson ID and verify
         UUID lessonID = UUID.randomUUID();
         progressData.setCurrentLessonID(lessonID);
         assertEquals(lessonID, progressData.getCurrentLessonID(), "CurrentLessonID should set and retrieve correctly");
@@ -100,6 +109,7 @@ public class ProgressDataTest {
 
     @Test
     public void testToString() {
+        // Verify that toString method generates a correct string representation
         String progressString = progressData.toString();
         assertTrue(progressString.contains("userID = 'testUserID'"), "toString should contain userID");
         assertTrue(progressString.contains("lessonsCompleted = 0"), "toString should contain lessonsCompleted");

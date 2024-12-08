@@ -16,7 +16,6 @@
     <center>
         <ListView fx:id="notificationsListView" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: whitesmoke;" />
     </center>
-
     <!-- Bottom Section: Controls -->
     <bottom>
         <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10; -fx-background-color: blueviolet;">

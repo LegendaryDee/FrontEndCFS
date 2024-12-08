@@ -10,10 +10,8 @@ import com.model.CourseList;
 import com.model.DataWriter;
 import com.model.LanguagePreference;
 import com.model.ProgressData;
-import com.model.UserList;
-import com.model.Teacher;
 import com.model.User;
-
+import com.model.UserList;
 
 import java.io.FileReader;
 import java.util.List;
@@ -89,41 +87,6 @@ public class SavingTests {
         // Set up CourseList and add test courses
         CourseList courseList = CourseList.getInstance();
         courseList.setCourses(new java.util.ArrayList<>());  // Clear existing courses for the test
-
-        Course testCourse1 = new Course(
-            java.util.UUID.randomUUID(),
-            "Spanish Basics",
-            LanguagePreference.SPANISH,
-            "A beginner's guide to Spanish",
-            new Teacher(
-                java.util.UUID.randomUUID(),
-                "teacher1",
-                "password123",
-                "teacher1@example.com",
-                LanguagePreference.SPANISH,
-                new ProgressData("3"),
-                0
-            )
-        );
-
-        Course testCourse2 = new Course(
-            java.util.UUID.randomUUID(),
-            "English Advanced",
-            LanguagePreference.ENGLISH,
-            "An advanced guide to English",
-            new Teacher(
-                java.util.UUID.randomUUID(),
-                "teacher2",
-                "password123",
-                "teacher2@example.com",
-                LanguagePreference.ENGLISH,
-                new ProgressData("4"),
-                0
-            )
-        );
-
-        courseList.addCourse(testCourse1);
-        courseList.addCourse(testCourse2);
 
         // Save the courses to the JSON file
         DataWriter.saveCourses(courseList.getAllCourses());
