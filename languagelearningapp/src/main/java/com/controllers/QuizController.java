@@ -128,6 +128,6 @@ public class QuizController {
 
     @FXML
     private void handleBackButton() throws IOException {
-        com.language.App.setRoot("main"); // Go back to the MainController
+        com.language.App.setRoot("MainController"); // Go back to the MainController
     }
 }

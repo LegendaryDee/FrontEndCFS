@@ -1,19 +1,16 @@
 package com.controllers;
 
 import java.io.IOException;
-import com.model.ProgressData;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class ProgressDataController {
-    private ProgressData progressData;
 
     @FXML
     private Label lbl_userID;
@@ -36,27 +33,33 @@ public class ProgressDataController {
     @FXML
     private ListView<String> list_strugglingPhrases;
 
-    @FXML
-    private TextField txt_addScore;
+    public void initialize() {
+        // Populate Struggling Words
+        list_strugglingWords.setItems(FXCollections.observableArrayList(
+            "Perdón" // Excuse me
+        ));
 
-    public void setProgressData(ProgressData progressData) {
-        this.progressData = progressData;
-        loadProgressData();
+        // Populate Struggling Phrases
+        list_strugglingPhrases.setItems(FXCollections.observableArrayList(
+            "El gato es negro",             // The cat is black
+            "Tengo un libro",               // I have a book
+            "Cenamos a las 7 PM",           // We eat dinner at 7 PM
+            "¿Dónde está la estación de tren?", // Where is the train station?
+            "A ella le gusta leer libros"   // She likes to read books
+        ));
+
+        // Populate other labels with placeholder data
+        lbl_userID.setText("User ID: cdurant");
+        lbl_lessonsCompleted.setText("Lessons Completed: 3");
+        lbl_attempts.setText("Attempts: 3");
+        lbl_totalScore.setText("Total Score: 14/20");
+
+        // Set progress bar to one-fifth (20%) of the way
+        progress_courseCompletion.setProgress(0.2);
     }
 
-    private void loadProgressData() {
-        lbl_userID.setText("User ID: " + progressData.getUserID());
-        lbl_lessonsCompleted.setText("Lessons Completed: " + progressData.getLessonsCompleted());
-        lbl_attempts.setText("Attempts: " + progressData.getAttempts());
-        lbl_totalScore.setText("Total Score: " + progressData.getTotalScore());
-        progress_courseCompletion.setProgress(progressData.getCourseCompletionPercentage() / 100.0);
-
-        list_strugglingWords.getItems().setAll(progressData.getStrugglingWords());
-        list_strugglingPhrases.getItems().setAll(progressData.getStrugglingPhrases());
-    }
-
     @FXML
-    private void saveProgress(ActionEvent event) throws IOException {
+    private void saveProgress() {
         showAlert("Success", "Progress Saved", "Your progress has been successfully saved.", AlertType.INFORMATION);
     }
 

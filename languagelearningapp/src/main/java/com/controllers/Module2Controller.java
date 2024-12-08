@@ -24,7 +24,7 @@ public class Module2Controller implements Initializable {
 
     @FXML
     private void backToMain(MouseEvent event) throws IOException {
-        com.language.App.setRoot("main");
+        com.language.App.setRoot("MainController");
     }
 
     @Override

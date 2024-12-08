@@ -15,10 +15,10 @@
     <!-- Center Section: Progress Details -->
     <center>
         <VBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 20;">
-            <Label fx:id="lbl_userID" text="User ID: " />
-            <Label fx:id="lbl_lessonsCompleted" text="Lessons Completed: " />
-            <Label fx:id="lbl_attempts" text="Attempts: " />
-            <Label fx:id="lbl_totalScore" text="Total Score: " />
+            <Label fx:id="lbl_userID" text="User ID: cdurant" />
+            <Label fx:id="lbl_lessonsCompleted" text="Lessons Completed: 3" />
+            <Label fx:id="lbl_attempts" text="Attempts: 3" />
+            <Label fx:id="lbl_totalScore" text="Total Score: 14/20" />
             
             <Label text="Course Completion:" />
             <ProgressBar fx:id="progress_courseCompletion" prefWidth="300" />
