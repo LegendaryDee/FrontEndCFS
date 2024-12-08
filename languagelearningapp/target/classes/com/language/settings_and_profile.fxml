@@ -78,7 +78,14 @@
     </GridPane>
 
     <!-- Navigation Buttons -->
+<<<<<<< HEAD
     <HBox alignment="CENTER" spacing="10" />
     <Button onAction="#saveSettings" style="-fx-background-color: lightgrey;" text="Save Settings" />
      <Button mnemonicParsing="false" onMouseClicked="#back" prefHeight="31.0" prefWidth="95.5" style="-fx-background-color: lightgrey;" text="Back" />
+=======
+    <HBox alignment="CENTER" spacing="10">
+        <Button mnemonicParsing="false" onMouseClicked="#back" prefHeight="31.0" prefWidth="95.5" style="-fx-background-color: lightgrey;" text="Back" />
+        <Button text="Back" mnemonicParsing="false" onMouseClicked="#back" />
+    </HBox>
+>>>>>>> c021c2bc848e4bd5ff82d35713bede13ed906f47
 </VBox>
